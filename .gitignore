@@ -1,0 +1,17 @@
+
+Project1/Project1.sln
+*.ipch
+*.json
+*.db
+Project1/.vs/Project1/v16/Browse.VC.opendb
+*.db-wal
+.vs/University-programming/v16/.suo
+*.sqlite
+*.db-shm
+Project1/.vs/Project1/v16/.suo
+*.vcxproj
+*.filters
+*.user
+*.recipe
+*.log
+*.lastbuildstate

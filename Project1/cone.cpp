@@ -30,3 +30,5 @@ int main() {
 	surfaceArea = M_PI * (pow(radiusOut, 2) + forming * (radiusOut + radiusIn) + pow(radiusIn, 2));
 	std::cout << "Surface area is: " << surfaceArea << std::endl;
 }
+
+// Antihype!
