@@ -1,3 +1,6 @@
+// Solving the volume and surface area of the cone
+// Stepan Berkunov
+
 #define USE_MATH_DEFINES // для C++
 #define M_PI 3.14159265358979323846
 #include <cmath>
