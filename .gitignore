@@ -15,3 +15,10 @@ Project1/.vs/Project1/v16/.suo
 *.recipe
 *.log
 *.lastbuildstate
+*.tlog
+*.idb
+*.pdb
+*.obj
+*.exe
+*.ilk
+*.txt
