@@ -4,14 +4,14 @@
 using namespace std;
 
 int main() {
-	int x, result;
+	int X, result;
 
 	cout << "Enter the number (from 100 up to 999)" << endl;
-	cin >> x;
+	cin >> X;
 
 	// Инициализация исключений
 	try {
-		if (x <= 100 || x >= 999) {
+		if (X <= 100 || X >= 999) {
 			throw 100;
 		}
 	}
@@ -23,6 +23,6 @@ int main() {
 	}
 	
 	// Результат получается посредством целочисленного деления введенного значения
-	result = x / 100;
+	result = X / 100;
 	cout << "The quantity of 100 is " << result << endl;
 }
