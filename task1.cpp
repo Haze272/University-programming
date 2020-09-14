@@ -4,24 +4,24 @@
 using namespace std;
 
 int main() {
-	int s, v, t, km; 
+	int s, V, T, km; 
 	s = 45;
 	
 	cout << "Enter the speed value (km/h) 0<=V<=100" << endl;
-	cin >> v;
+	cin >> V;
 
 	cout << "Enter the time value (hours) 1<=T<=100" << endl;
-	cin >> t;
+	cin >> T;
 
 	// Реализуем исключения (При вводе некорректных данных)
 	try {
-		if (!(v >= 0 && v <= 100) && !(t >= 1 && t <= 100)) {
+		if (!(V >= 0 && V <= 100) && !(T >= 1 && T <= 100)) {
 			throw 100;
 		}
-		else if (!(v >= 0 && v <= 100)) {
+		else if (!(V >= 0 && V <= 100)) {
 			throw 101;
 		}
-		else if (!(t >= 1 && t <= 100)) {
+		else if (!(T >= 1 && T <= 100)) {
 			throw 102;
 		}
 	}
@@ -40,6 +40,6 @@ int main() {
 		}
 	}
 
-	km = (v * t) % s; // Так как трасса кольцевая, то от любого результата берем остаток от деления на длину кольцевой трассы
+	km = (V * T) % s; // Так как трасса кольцевая, то от любого результата берем остаток от деления на длину кольцевой трассы
 	cout << "When you'll arrive, you will be at " << km << " kilometer" << endl;
 }
