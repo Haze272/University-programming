@@ -32,7 +32,7 @@ int inputInt(int m = INT_MIN, int M = INT_MAX)
 	}
 }
 
-void task1() {
+void task1_1() {
 	string yourName;
 	string command_empty;
 	bool isExit = false;
@@ -57,7 +57,7 @@ void task1() {
 	} while (!isExit);
 }
 
-void task2() {
+void task1_2() {
 	float calculateNumberFirst, calculateNumberSecond, calculateResult;
 	char calculateOperator;
 
@@ -181,7 +181,7 @@ void task2() {
 	} while (!isExit);
 }
 
-void task3() {
+void task1_3() {
 
 	// Написание формулы решения линейного уравнения не вызывает трудностей, однако важно понимать,
 	// что надо учитывать деление на ноль, когда коеффицент при переменной равен нулю.
@@ -272,7 +272,7 @@ void task3() {
 	} while (!isExit);
 }
 
-void task4() {
+void task1_4() {
 
 	// При написании реализации решения квадратного уравнения важно понимать, что помимо развествления при дискриминанте
 	// присутствует также деление на ноль, бесконечное множество и отсутствие решения.
@@ -420,7 +420,7 @@ void task4() {
 	} while (!isExit);
 }
 
-void task5() {
+void task1_5() {
 
 	// В условии говориться, то светло может быть при двух случаях:
 	// 1) На улице день и открыты шторы
@@ -531,6 +531,7 @@ int main() {
 		cout << "№3 - задание \"Уравнение\" \n";
 		cout << "№4 - задание \"Ещё уравнение\" \n";
 		cout << "№5 - задание \"Лампа со шторой\" \n\n";
+		cout << "Ввод нуля завершит программу\n\n";
 
 		// Нас интересует проверка, которая будет определять, ввёл ли пользователь число от 1 до 5.
 		taskNumber = inputInt(1, 5);
@@ -538,11 +539,12 @@ int main() {
 		// Когда пользователь вводит номер задания и соответствующий case реазилуется, после этого работа главной функции не завешается и это может привести к ошибкам.
 		// Поэтому сразу как только функция - задание выполнится, будет выход из switch.
 		switch (taskNumber) {
-			case 1: task1(); break;
-			case 2: task2(); break;
-			case 3: task3(); break;
-			case 4: task4(); break;
-			case 5: task5(); break;
+			case 1: task1_1(); break;
+			case 2: task1_2(); break;
+			case 3: task1_3(); break;
+			case 4: task1_4(); break;
+			case 5: task1_5(); break;
+			case 0: exit(0);
 		}
 
 		cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
