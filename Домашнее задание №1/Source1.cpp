@@ -370,7 +370,84 @@ void task4() {
 }
 
 void task5() {
-	cout << "Замай - бог рэпа5\n";
+	bool isExit = false;
+	string command_empty;
+	bool isDay, isCurtains, isLamp;
+
+	do {
+		while (true) {
+			bool localDay;
+			cout << "На улице день? Напишите 1 - если да, 0 - если нет" << endl;
+			if ((cin >> localDay).good()) {
+				isDay = localDay;
+				break;
+			}
+
+			if (cin.fail()) {
+				cin.clear();
+				cout << "Неверный ввод, повторите (0, если ночь, 1 - если день)." << endl;
+			}
+			else {
+				cout << "Число вне допустимого диапазона значений (0 или 1). Повторите ввод.\n";
+			}
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+
+		while (true) {
+			bool localCurtains;
+			cout << "Открыты ли шторы? Напишите 1 - если да, 0 - если нет" << endl;
+			if ((cin >> localCurtains).good()) {
+				isCurtains = localCurtains;
+				break;
+			}
+
+			if (cin.fail()) {
+				cin.clear();
+				cout << "Неверный ввод, повторите (0, если шторы задвинуты , 1 - если открыты)." << endl;
+			}
+			else {
+				cout << "Число вне допустимого диапазона значений (0 или 1). Повторите ввод.\n";
+			}
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+
+		while (true) {
+			bool localLamp;
+			cout << "Включена ли лампа? Напишите 1 - если да, 0 - если нет" << endl;
+			if ((cin >> localLamp).good()) {
+				isLamp = localLamp;
+				break;
+			}
+
+			if (cin.fail()) {
+				cin.clear();
+				cout << "Неверный ввод, повторите (0, если лампа выключена, 1 - если включена)." << endl;
+			}
+			else {
+				cout << "Число вне допустимого диапазона значений (0 или 1). Повторите ввод.\n";
+			}
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+
+		if ((isDay == 1 && isCurtains == 1) || isLamp == 1) {
+			cout << "\n В комнате светло!";
+
+			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+			cin >> command_empty;
+			if (command_empty == "!exit") {
+				isExit = true;
+			}
+		}
+		else {
+			cout << "\n В комнате темно.";
+
+			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+			cin >> command_empty;
+			if (command_empty == "!exit") {
+				isExit = true;
+			}
+		}
+	} while (!isExit);
 }
 
 int main() {
