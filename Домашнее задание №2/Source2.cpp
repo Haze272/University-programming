@@ -30,6 +30,24 @@ int inputInt(int m = INT_MIN, int M = INT_MAX)
 		cin.ignore(numeric_limits<streamsize>::max(), '\n'); // <-- Я не знаю зачем эта строка, честно не смог понять. Однако из-за max() я не мог поставить windows.h
 	}
 }
+double Inputfloat(int m, int M) {
+	for (;;) {
+		float valuea;
+		cout << "Введите число. \n";
+		if ((cin >> valuea).good() && (m <= valuea) && (valuea <= M)) {
+			return valuea;
+			break;
+		}
+		if (cin.fail()) {
+			cin.clear();
+			cout << "Неверный ввод, повторите. \n";
+		}
+		else {
+			cout << "Число вне допустимого диапазона значений. Повторите ввод. \n";
+		}
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	}
+}
 
 void task2_1() {
 	system("cls");
@@ -43,6 +61,7 @@ void task2_1() {
 	double Volume, Area, height, radiusOut, radiusIn, forming;
 
 	do {
+		/*
 		while (true) {
 			float localradiusOut;
 			cout << "Введите радиус большего основания:" << endl;
@@ -60,7 +79,13 @@ void task2_1() {
 			}
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
+		*/
+		cout << "Введите радиус большего основания:" << endl;
+		radiusOut = inputInt(0, 2147483647);
 
+		cout << "Введите радиус меньшего основания:" << endl;
+		radiusIn = inputInt(0, 2147483647);
+		/*
 		while (true) {
 			float localradiusIn;
 			cout << "Введите радиус меньшего основания:" << endl;
@@ -78,7 +103,7 @@ void task2_1() {
 			}
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
-
+		*/
 		while (true) {
 			float localheight;
 			cout << "Введите высоту:" << endl;
@@ -192,13 +217,16 @@ void task2_2() {
 		}
 		catch (int dripperCatcher) {
 			if (dripperCatcher == 5001) {
-
+				cout << "Вы вышли за область предела функции (|x| > 0) и (a - x^2 >= 0)";
+				break;
 			}
 			if (dripperCatcher == 5002) {
-
+				cout << "Вы вышли за область предела функции (|x| > 0)";
+				break;
 			}
 			if (dripperCatcher == 5003) {
-
+				cout << "Вы вышли за область предела функции (a - x^2 >= 0)";
+				break;
 			}
 		}
 
@@ -208,11 +236,30 @@ void task2_2() {
 		else if (abs(x) >= 1) {
 			w = sqrt(a - pow(x, 2));
 		}
+
+		cout << "\n\n\n\n Ответ равен " << w;
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
 	} while (!isExit);
 }
 
 void task2_3() {
-	cout << "Мы из антихайпа!!! 3";
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+	double coneMinimum = 0;
+	double coneMaximum = 2147483647;
+
+	double w, a, x;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Функция----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+
+	} while (!isExit);
 }
 
 void task2_4() {
@@ -252,12 +299,12 @@ int main() {
 		// Когда пользователь вводит номер задания и соответствующий case реазилуется, после этого работа главной функции не завешается и это может привести к ошибкам.
 		// Поэтому сразу как только функция - задание выполнится, будет выход из switch.
 		switch (taskNumber) {
-			case 1: task2_1(); break;
-			case 2: task2_2(); break;
-			case 3: task2_3(); break;
-			case 4: task2_4(); break;
-			case 5: task2_5(); break;
-			case 0: exit(0);
+		case 1: task2_1(); break;
+		case 2: task2_2(); break;
+		case 3: task2_3(); break;
+		case 4: task2_4(); break;
+		case 5: task2_5(); break;
+		case 0: exit(0);
 		}
 
 		cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
