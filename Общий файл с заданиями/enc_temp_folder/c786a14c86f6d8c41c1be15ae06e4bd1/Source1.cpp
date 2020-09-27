@@ -632,9 +632,6 @@ int main() {
 			case 1:
 				while (true) {
 					system("cls");
-
-					cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
-
 					cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
 					cout << endl;
 					cout << "№1 - задание \"Имя\"\n";
@@ -654,14 +651,13 @@ int main() {
 						case 5: task1_5(); break;
 						case 0: break;
 					}
+
+					cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 				}
 				break;
 			case 2:
 				while (true) {
 					system("cls");
-
-					cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
-
 					cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
 					cout << endl;
 					cout << "№1 - задание \"Конус»\"\n";
@@ -681,6 +677,8 @@ int main() {
 						case 5: task2_5(); break;
 						case 0: break;
 					}
+
+					cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 				}
 				break;
 			case 0: exit(0);
