@@ -54,7 +54,7 @@ double inputDouble(int m, int M) {
 	}
 }
 
-bool inputBool () {
+bool inputBool() {
 	for (;;) {
 		bool localBool;
 		if ((cin >> localBool).good()) {
@@ -79,7 +79,6 @@ bool inputBool () {
 /*-----------------------------------------Первая неделя-----------------------------------------*/
 
 void task1_1() {
-	system("cls");
 	string yourName;
 	string command_empty;
 	bool isExit = false;
@@ -101,6 +100,7 @@ void task1_1() {
 		if (command_empty == "!exit") {
 			isExit = true;
 		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -149,7 +149,7 @@ void task1_2() {
 		switch (calculateOperator) {
 		case '+': {
 			calculateResult = calculateNumberFirst + calculateNumberSecond;
-			cout << "Сумма" << calculateNumberFirst << "и" << calculateNumberSecond << "равна" << calculateResult << endl;
+			cout << "Сумма " << calculateNumberFirst << " и " << calculateNumberSecond << " равна " << calculateResult << endl;
 			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 			cin >> command_empty;
 			if (command_empty == "!exit") {
@@ -159,7 +159,7 @@ void task1_2() {
 		}
 		case '-': {
 			calculateResult = calculateNumberFirst - calculateNumberSecond;
-			cout << "Разность" << calculateNumberFirst << "и" << calculateNumberSecond << "равна" << calculateResult << endl;
+			cout << "Разность " << calculateNumberFirst << " и " << calculateNumberSecond << " равна " << calculateResult << endl;
 			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 			cin >> command_empty;
 			if (command_empty == "!exit") {
@@ -169,7 +169,7 @@ void task1_2() {
 		}
 		case '*': {
 			calculateResult = calculateNumberFirst * calculateNumberSecond;
-			cout << "Произведение" << calculateNumberFirst << "и" << calculateNumberSecond << "равно" << calculateResult << endl;
+			cout << "Произведение " << calculateNumberFirst << " и " << calculateNumberSecond << " равно " << calculateResult << endl;
 			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 			cin >> command_empty;
 			if (command_empty == "!exit") {
@@ -178,8 +178,8 @@ void task1_2() {
 			break;
 		}
 		case '/': {
-			calculateResult = calculateNumberFirst * calculateNumberSecond;
-			cout << "Частное" << calculateNumberFirst << "и" << calculateNumberSecond << "равно" << calculateResult << endl;
+			calculateResult = calculateNumberFirst / calculateNumberSecond;
+			cout << "Частное " << calculateNumberFirst << " и " << calculateNumberSecond << " равно " << calculateResult << endl;
 			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 			cin >> command_empty;
 			if (command_empty == "!exit") {
@@ -188,6 +188,7 @@ void task1_2() {
 			break;
 		}
 		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -228,17 +229,17 @@ void task1_3() {
 		}
 		equationLineSolve = -cLine / bLine;
 
-		cout << "\n\n\n\n Решение уравнения равно " << equationLineSolve;
+		cout << "\n\n\n\nРешение уравнения равно " << equationLineSolve;
 		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 		cin >> command_empty;
 		if (command_empty == "!exit") {
 			isExit = true;
 		}
+		system("cls");
 	} while (!isExit);
 }
 
 void task1_4() {
-	system("cls");
 
 	// При написании реализации решения квадратного уравнения важно понимать, что помимо развествления при дискриминанте
 	// присутствует также деление на ноль, бесконечное множество и отсутствие решения.
@@ -323,7 +324,7 @@ void task1_4() {
 			}
 		}
 		else {
-			cout << "\n Уравнение не имеет решений (дискриминант отрицательный)";
+			cout << "\nУравнение не имеет решений (дискриминант отрицательный)";
 
 			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 			cin >> command_empty;
@@ -331,12 +332,11 @@ void task1_4() {
 				isExit = true;
 			}
 		}
-
+		system("cls");
 	} while (!isExit);
 }
 
 void task1_5() {
-	system("cls");
 
 	// В условии говориться, то светло может быть при двух случаях:
 	// 1) На улице день и открыты шторы
@@ -367,7 +367,7 @@ void task1_5() {
 			}
 		}
 		else {
-			cout << "\n В комнате темно.";
+			cout << "\nВ комнате темно.";
 
 			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 			cin >> command_empty;
@@ -375,13 +375,13 @@ void task1_5() {
 				isExit = true;
 			}
 		}
+		system("cls");
 	} while (!isExit);
 }
 
 /*-----------------------------------------Вторая неделя-----------------------------------------*/
 
 void task2_1() {
-	system("cls");
 	string command_empty;
 	bool isExit = false;
 
@@ -415,11 +415,11 @@ void task2_1() {
 		if (command_empty == "!exit") {
 			isExit = true;
 		}
+		system("cls");
 	} while (!isExit);
 }
 
 void task2_2() {
-	system("cls");
 	string command_empty;
 	bool isExit = false;
 
@@ -427,7 +427,10 @@ void task2_2() {
 
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Разветвление----------------\n\n\n\n\n\n\n\n\n\n";
 
+	int exceptionCounter;
 	do {
+		exceptionCounter = 0;
+
 		cout << "Введите значение параметра a:" << endl;
 		a = inputDouble(-2147483648, 2147483647);
 
@@ -447,37 +450,63 @@ void task2_2() {
 		}
 		catch (int dripperCatcher) {
 			if (dripperCatcher == 5201) {
+				exceptionCounter++;
 				cout << "Вы вышли за область предела функции (|x| > 0) и (a - x^2 >= 0)";
-				break;
+
+				cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+				cin >> command_empty;
+				if (command_empty == "!exit") {
+					return;
+				}
+				else {
+					break;
+				}
 			}
 			if (dripperCatcher == 5202) {
+				exceptionCounter++;
 				cout << "Вы вышли за область предела функции (|x| > 0)";
-				break;
+				
+				cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+				cin >> command_empty;
+				if (command_empty == "!exit") {
+					return;
+				}
+				else {
+					break;
+				}
 			}
 			if (dripperCatcher == 5203) {
+				exceptionCounter = 1;
 				cout << "Вы вышли за область предела функции (a - x^2 >= 0)";
-				break;
+				
+				cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+				cin >> command_empty;
+				if (command_empty == "!exit") {
+					break;
+				}
 			}
 		}
 
-		if (abs(x) < 1) {
-			w = a * log(abs(x));
-		}
-		else if (abs(x) >= 1) {
-			w = sqrt(a - pow(x, 2));
-		}
-		cout << "\n\n\n\nОтвет равен " << w;
+		if (exceptionCounter == 0) {
+			if (abs(x) < 1) {
+				w = a * log(abs(x));
+			}
+			else if (abs(x) >= 1) {
+				w = sqrt(a - pow(x, 2));
+			}
+			cout << "\n\n\n\nОтвет равен " << w;
 
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
+			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+			cin >> command_empty;
+			if (command_empty == "!exit") {
+				isExit = true;
+			}
+			system("cls");
 		}
 	} while (!isExit);
 }
 
 void task2_3() {
-	system("cls");
 	string command_empty;
 	bool isExit = false;
 
@@ -509,14 +538,23 @@ void task2_3() {
 		catch (int dripperCatcher) {
 			if (dripperCatcher == 5301) {
 				cout << "Вы вышли за область предела функции (b - y > 0) и (b - x >= 0)";
+
+				cout << "\nПродолжим? Напишите всё что угодно\n";
+				cin >> command_empty;
 				break;
 			}
 			if (dripperCatcher == 5302) {
 				cout << "Вы вышли за область предела функции (b - y > 0)";
+
+				cout << "\nПродолжим? Напишите всё что угодно\n";
+				cin >> command_empty;
 				break;
 			}
 			if (dripperCatcher == 5303) {
 				cout << "Вы вышли за область предела функции (b - x >= 0)";
+
+				cout << "\nПродолжим? Напишите всё что угодно\n";
+				cin >> command_empty;
 				break;
 			}
 		}
@@ -529,11 +567,11 @@ void task2_3() {
 		if (command_empty == "!exit") {
 			isExit = true;
 		}
+		system("cls");
 	} while (!isExit);
 }
 
 void task2_4() {
-	system("cls");
 	string command_empty;
 	bool isExit = false;
 
@@ -556,6 +594,7 @@ void task2_4() {
 		if (command_empty == "!exit") {
 			isExit = true;
 		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -598,6 +637,7 @@ void task2_5() {
 		if (command_empty == "!exit") {
 			isExit = true;
 		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -620,7 +660,6 @@ int main() {
 	int semanaNumero;
 
 	while (true) {
-		system("cls");
 		cout << "Введите номер недели с домашним заданием (1-2)" << endl;
 		cout << endl;
 		cout << "№1 - Первая неделя\n";
@@ -628,63 +667,70 @@ int main() {
 		cout << "Ввод нуля завершит программу\n\n";
 
 		semanaNumero = inputInt(0, 2);
+
+		bool isExit = false;
 		switch (semanaNumero) {
-			case 1:
-				while (true) {
-					system("cls");
+		case 1:
+			do {
+				system("cls");
 
-					cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
+				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
-					cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
-					cout << endl;
-					cout << "№1 - задание \"Имя\"\n";
-					cout << "№2 - задание \"Арифметика\" \n";
-					cout << "№3 - задание \"Уравнение\" \n";
-					cout << "№4 - задание \"Ещё уравнение\" \n";
-					cout << "№5 - задание \"Лампа со шторой\" \n\n";
-					cout << "Ввод нуля выйдет в меню выбора недели\n\n";
+				cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
+				cout << endl;
+				cout << "№1 - задание \"Имя\"\n";
+				cout << "№2 - задание \"Арифметика\" \n";
+				cout << "№3 - задание \"Уравнение\" \n";
+				cout << "№4 - задание \"Ещё уравнение\" \n";
+				cout << "№5 - задание \"Лампа со шторой\" \n\n";
+				cout << "Ввод нуля выйдет в меню выбора недели\n\n";
 
-					taskNumber = inputInt(0, 5);
+				taskNumber = inputInt(0, 5);
+				system("cls");
 
-					switch (taskNumber) {
-						case 1: task1_1(); break;
-						case 2: task1_2(); break;
-						case 3: task1_3(); break;
-						case 4: task1_4(); break;
-						case 5: task1_5(); break;
-						case 0: break;
-					}
+				switch (taskNumber) {
+				case 1: task1_1(); break;
+				case 2: task1_2(); break;
+				case 3: task1_3(); break;
+				case 4: task1_4(); break;
+				case 5: task1_5(); break;
+				case 0: isExit = 1;
 				}
-				break;
-			case 2:
-				while (true) {
-					system("cls");
+				system("cls");
+			} while (!isExit);
+			break;
+		case 2:
+			do {
+				system("cls");
 
-					cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
+				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
-					cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
-					cout << endl;
-					cout << "№1 - задание \"Конус»\"\n";
-					cout << "№2 - задание \"Разветвление\"\n";
-					cout << "№3 - задание \"Функция\"\n";
-					cout << "№4 - задание \"Порядок\"\n";
-					cout << "№5 - задание \"Табуляция\"\n\n";
-					cout << "Ввод нуля выйдет в меню выбора недели\n\n";
+				cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
+				cout << endl;
+				cout << "№1 - задание \"Конус\"\n";
+				cout << "№2 - задание \"Разветвление\"\n";
+				cout << "№3 - задание \"Функция\"\n";
+				cout << "№4 - задание \"Порядок\"\n";
+				cout << "№5 - задание \"Табуляция\"\n\n";
+				cout << "Ввод нуля выйдет в меню выбора недели\n\n";
 
-					taskNumber = inputInt(0, 5);
+				taskNumber = inputInt(0, 5);
+				system("cls");
 
-					switch (taskNumber) {
-						case 1: task2_1(); break;
-						case 2: task2_2(); break;
-						case 3: task2_3(); break;
-						case 4: task2_4(); break;
-						case 5: task2_5(); break;
-						case 0: break;
-					}
+				switch (taskNumber) {
+				case 1: task2_1(); break;
+				case 2: task2_2(); break;
+				case 3: task2_3(); break;
+				case 4: task2_4(); break;
+				case 5: task2_5(); break;
+				case 0: isExit = 1;
 				}
-				break;
-			case 0: exit(0);
-		break;
+
+				system("cls");
+			} while (!isExit);
+
+			break;
+		case 0: exit(0); break;
 		}
 	}
 }
