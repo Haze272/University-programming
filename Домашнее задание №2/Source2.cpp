@@ -9,6 +9,8 @@
 #include <string>
 #define  NOMINMAX // Без этого define происходит кофликт библиотеки Windows.h и max() в функции inputInt
 #include <Windows.h> // Реализация русского ввода/вывода
+#include <cmath>
+#define M_PI 3.14159265358979323846
 
 using namespace std;
 
@@ -30,16 +32,183 @@ int inputInt(int m = INT_MIN, int M = INT_MAX)
 }
 
 void task2_1() {
+	system("cls");
 	string command_empty;
 	bool isExit = false;
+	double coneMinimum = 0;
+	double coneMaximum = 2147483647;
 
-	cout << "\n\n\n\n\n\n\n\n\n\n----------------Вывод имени----------------\n\n\n\n\n\n\n\n\n\n";
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Конус----------------\n\n\n\n\n\n\n\n\n\n";
 
-	cout << "Мы из антихайпа!!! 1";
+	double Volume, Area, height, radiusOut, radiusIn, forming;
+
+	do {
+		while (true) {
+			float localradiusOut;
+			cout << "Введите радиус большего основания:" << endl;
+			if ((cin >> localradiusOut).good() && (coneMinimum <= localradiusOut) && (localradiusOut <= coneMaximum)) {
+				radiusOut = localradiusOut;
+				break;
+			}
+
+			if (cin.fail()) {
+				cin.clear();
+				cout << "Неверный ввод, повторите." << endl;
+			}
+			else {
+				cout << "Число вне допустимого диапазона значений. Повторите ввод.\n";
+			}
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+
+		while (true) {
+			float localradiusIn;
+			cout << "Введите радиус меньшего основания:" << endl;
+			if ((cin >> localradiusIn).good() && (coneMinimum <= localradiusIn) && (localradiusIn <= coneMaximum)) {
+				radiusIn = localradiusIn;
+				break;
+			}
+
+			if (cin.fail()) {
+				cin.clear();
+				cout << "Неверный ввод, повторите." << endl;
+			}
+			else {
+				cout << "Число вне допустимого диапазона значений. Повторите ввод.\n";
+			}
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+
+		while (true) {
+			float localheight;
+			cout << "Введите высоту:" << endl;
+			if ((cin >> localheight).good() && (coneMinimum <= localheight) && (localheight <= coneMaximum)) {
+				height = localheight;
+				break;
+			}
+
+			if (cin.fail()) {
+				cin.clear();
+				cout << "Неверный ввод, повторите." << endl;
+			}
+			else {
+				cout << "Число вне допустимого диапазона значений. Повторите ввод.\n";
+			}
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+
+		while (true) {
+			float localforming;
+			cout << "Введите образующую конуса:" << endl;
+			if ((cin >> localforming).good() && (coneMinimum <= localforming) && (localforming <= coneMaximum)) {
+				forming = localforming;
+				break;
+			}
+
+			if (cin.fail()) {
+				cin.clear();
+				cout << "Неверный ввод, повторите." << endl;
+			}
+			else {
+				cout << "Число вне допустимого диапазона значений. Повторите ввод.\n";
+			}
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+
+		system("cls");
+
+		Volume = M_PI / 3 * height * (pow(radiusOut, 2) + radiusOut * radiusIn + pow(radiusIn, 2));
+		cout << "Объём вашего усечённого конуса равен " << Volume << endl;
+
+		Area = M_PI * (pow(radiusOut, 2) + forming * (radiusOut + radiusIn) + pow(radiusIn, 2));
+		cout << "Площадь вашего усечённого конуса равна " << Area << endl;
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+	} while (!isExit);
 }
 
 void task2_2() {
-	cout << "Мы из антихайпа!!! 2";
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+	double coneMinimum = 0;
+	double coneMaximum = 2147483647;
+
+	double w, a, x;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Разветвление----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		while (true) {
+			float localParameter;
+			cout << "Введите значение параметра a:" << endl;
+			if ((cin >> localParameter).good() && (coneMinimum <= localParameter) && (localParameter <= coneMaximum)) {
+				a = localParameter;
+				break;
+			}
+
+			if (cin.fail()) {
+				cin.clear();
+				cout << "Неверный ввод, повторите." << endl;
+			}
+			else {
+				cout << "Число вне допустимого диапазона значений. Повторите ввод.\n";
+			}
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+
+		while (true) {
+			float localVariable;
+			cout << "Введите значение переменной x:" << endl;
+			if ((cin >> localVariable).good() && (coneMinimum <= localVariable) && (localVariable <= coneMaximum)) {
+				x = localVariable;
+				break;
+			}
+
+			if (cin.fail()) {
+				cin.clear();
+				cout << "Неверный ввод, повторите." << endl;
+			}
+			else {
+				cout << "Число вне допустимого диапазона значений. Повторите ввод.\n";
+			}
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+
+		try {
+			if (abs(x) <= 0 && a - pow(x, 2) < 0) {
+				throw 5001;
+			}
+			if (abs(x) <= 0) {
+				throw 5002;
+			}
+			if (a - pow(x, 2) < 0) {
+				throw 5003;
+			}
+		}
+		catch (int dripperCatcher) {
+			if (dripperCatcher == 5001) {
+
+			}
+			if (dripperCatcher == 5002) {
+
+			}
+			if (dripperCatcher == 5003) {
+
+			}
+		}
+
+		if (abs(x) < 1) {
+			w = a * log(abs(x));
+		}
+		else if (abs(x) >= 1) {
+			w = sqrt(a - pow(x, 2));
+		}
+	} while (!isExit);
 }
 
 void task2_3() {
