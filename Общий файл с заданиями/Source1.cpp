@@ -626,7 +626,7 @@ void task2_5() {
 
 	do {
 		cout << "Введите число для табулирования функции\n";
-		tabel = inputDouble(-2147483648, 2147483647);
+		tabel = inputDouble(-2147483637, 2147483635);
 		cout << endl;
 		tabel -= 4;
 		int counter = 1;
