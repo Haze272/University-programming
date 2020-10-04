@@ -483,7 +483,7 @@ void task2_2() {
 			if (dripperCatcher == 5202) {
 				exceptionCounter++;
 				cout << "Вы вышли за область предела функции (|x| > 0)";
-				
+
 				cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 				cin >> command_empty;
 				if (command_empty == "!exit") {
@@ -496,7 +496,7 @@ void task2_2() {
 			if (dripperCatcher == 5203) {
 				exceptionCounter = 1;
 				cout << "Вы вышли за область предела функции (a - x^2 >= 0)";
-				
+
 				cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 				cin >> command_empty;
 				if (command_empty == "!exit") {
@@ -673,7 +673,7 @@ void task3_1() {
 
 	do {
 		cout << "Введите сумму займа\n";
-		Sum = inputFloat(0 , 2147483647);
+		Sum = inputFloat(0, 2147483647);
 		cout << endl;
 
 		cout << "Введите значение процента в %: (0 - 100)\n";
@@ -700,7 +700,7 @@ void task3_1() {
 				break;
 			}
 		}
-		
+
 		mouthPay = (Sum * r * pow(1 + r, years)) / (12 * (pow(1 + r, years) - 1));
 		cout << "\nМесячная выплата равна " << mouthPay << endl;
 
@@ -835,7 +835,7 @@ int main() {
 			} while (!isExit);
 
 			break;
-		case 0: exit(0); break; 
+		case 0: exit(0); break;
 		}
 	}
 }
