@@ -1,9 +1,5 @@
 ﻿//
 //
-<<<<<<< HEAD
-=======
-//
->>>>>>> 1e3a8124a5d516878248d4e57e123e3c2051c6c3
 // Все домашние работы по процедурному программированию
 // Беркунов Степан Игоревич, ИНБО-15-20
 //
@@ -32,7 +28,6 @@ int inputInt(int m, int M) {
 		if (cin.fail()) {
 			cin.clear();
 			cout << "Неверный ввод, повторите. \n";
-<<<<<<< HEAD
 		}
 		else {
 			cout << "Число вне допустимого диапазона значений. Повторите ввод. \n";
@@ -51,8 +46,6 @@ float inputFloat(int m, int M) {
 		if (cin.fail()) {
 			cin.clear();
 			cout << "Неверный ввод, повторите. \n";
-=======
->>>>>>> 1e3a8124a5d516878248d4e57e123e3c2051c6c3
 		}
 		else {
 			cout << "Число вне допустимого диапазона значений. Повторите ввод. \n";
@@ -413,48 +406,22 @@ void task2_1() {
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Конус----------------\n\n\n\n\n\n\n\n\n\n";
 
 	double Volume, Area, height, radiusOut, radiusIn, forming;
-        int counterMF;
 
 	do {
-<<<<<<< HEAD
-=======
-                counterMF = 0;
->>>>>>> 1e3a8124a5d516878248d4e57e123e3c2051c6c3
 		cout << "Введите радиус большего основания:\n";
 		radiusOut = inputDouble(0, 2147483647);
 
 		cout << "Введите радиус меньшего основания:\n";
 		radiusIn = inputDouble(0, 2147483647);
-                
-                if (radiusIn == radiusOut) {
-                    cout << "Радиусы совпадают, значит фигура цилиндр\n";
-                    Volume = M_PI * pow(radiusIn, 2) * height;
-                    cout << "Объем равен " << Volume << endl;
 
-<<<<<<< HEAD
 		cout << "Введите высоту:\n";
 		height = inputDouble(0, 2147483647);
 
 		cout << "Введите образующую конуса:\n";
 		forming = inputDouble(0, 2147483647);
-=======
-                    Area = 2 * radiusIn * M_PI * (radiusIn + height);
-                    cout << "Площадь равна " << Area << endl;
 
-                    counterMF = 1;
-                    if (command_empty == "!exit") {
-			isExit = true;
-                    }
-                }
-                else {
-		    cout << "Введите высоту:\n";
-		    height = inputDouble(0, 2147483647);
->>>>>>> 1e3a8124a5d516878248d4e57e123e3c2051c6c3
+		system("cls");
 
-		    cout << "Введите образующую конуса:\n";
-		    forming = inputDouble(0, 2147483647);
-
-<<<<<<< HEAD
 		Volume = M_PI / 3 * height * (pow(radiusOut, 2) + radiusOut * radiusIn + pow(radiusIn, 2));
 		cout << "Объём вашего усечённого конуса равен " << Volume << endl;
 
@@ -464,21 +431,7 @@ void task2_1() {
 		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 		cin >> command_empty;
 		if (command_empty == "!exit") {
-=======
-		    system("cls");
-
-		    Volume = M_PI / 3 * height * (pow(radiusOut, 2) + radiusOut * radiusIn + pow(radiusIn, 2));
-		    cout << "Объём вашего усечённого конуса равен " << Volume << endl;
-
-		    Area = M_PI * (pow(radiusOut, 2) + forming * (radiusOut + radiusIn) + pow(radiusIn, 2));
-		    cout << "Площадь вашего усечённого конуса равна " << Area << endl;
-
-		    cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		    cin >> command_empty;
-		    if (command_empty == "!exit") {
->>>>>>> 1e3a8124a5d516878248d4e57e123e3c2051c6c3
 			isExit = true;
-                    }
 		}
 		system("cls");
 	} while (!isExit);
@@ -530,11 +483,7 @@ void task2_2() {
 			if (dripperCatcher == 5202) {
 				exceptionCounter++;
 				cout << "Вы вышли за область предела функции (|x| > 0)";
-<<<<<<< HEAD
 
-=======
-				
->>>>>>> 1e3a8124a5d516878248d4e57e123e3c2051c6c3
 				cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 				cin >> command_empty;
 				if (command_empty == "!exit") {
@@ -547,11 +496,7 @@ void task2_2() {
 			if (dripperCatcher == 5203) {
 				exceptionCounter = 1;
 				cout << "Вы вышли за область предела функции (a - x^2 >= 0)";
-<<<<<<< HEAD
 
-=======
-				
->>>>>>> 1e3a8124a5d516878248d4e57e123e3c2051c6c3
 				cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 				cin >> command_empty;
 				if (command_empty == "!exit") {
@@ -682,11 +627,7 @@ void task2_5() {
 
 	do {
 		cout << "Введите число для табулирования функции\n";
-<<<<<<< HEAD
 		tabel = inputDouble(-2147483648, 2147483647);
-=======
-		tabel = inputDouble(-2147483637, 2147483635);
->>>>>>> 1e3a8124a5d516878248d4e57e123e3c2051c6c3
 		cout << endl;
 		tabel -= 4;
 		int counter = 1;
@@ -710,7 +651,6 @@ void task2_5() {
 		}
 
 		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-<<<<<<< HEAD
 		cin >> command_empty;
 		if (command_empty == "!exit") {
 			isExit = true;
@@ -765,8 +705,6 @@ void task3_1() {
 		cout << "\nМесячная выплата равна " << mouthPay << endl;
 
 		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-=======
->>>>>>> 1e3a8124a5d516878248d4e57e123e3c2051c6c3
 		cin >> command_empty;
 		if (command_empty == "!exit") {
 			isExit = true;
@@ -798,10 +736,7 @@ int main() {
 		cout << endl;
 		cout << "№1 - Первая неделя\n";
 		cout << "№2 - Вторая неделя\n";
-<<<<<<< HEAD
 		cout << "№3 - Третья неделя\n";
-=======
->>>>>>> 1e3a8124a5d516878248d4e57e123e3c2051c6c3
 		cout << "Ввод нуля завершит программу\n\n";
 
 		semanaNumero = inputInt(0, 3);
