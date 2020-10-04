@@ -11,6 +11,7 @@
 #include <Windows.h> // Реализация русского ввода/вывода
 #include <cmath>
 #define M_PI 3.14159265358979323846
+#include <fstream>
 
 using namespace std;
 
@@ -88,6 +89,19 @@ bool inputBool() {
 		}
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	}
+}
+
+void antihypeSort(char* i, int n) {
+	int a, b;
+	char t;
+	for (a = 0; a < n; a++)
+		for (b = n - 1; b >= a; b--) {
+			if (i[b - 1] > i[b]) {
+				t = i[b - 1];
+				i[b - 1] = i[b];
+				i[b] = t;
+			}
+		}
 }
 
 
@@ -713,6 +727,101 @@ void task3_1() {
 	} while (!isExit);
 }
 
+void task3_2() {
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+
+	float Sum, r, percent, mouthPay;
+	int years;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Ссуда----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		cout << "Введите сумму займа\n";
+		Sum = inputFloat(0, 2147483647);
+		cout << endl;
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
+
+void task3_3() {
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+
+	string escritor_boofer;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Копирование файла----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		ofstream file_escritor("mybenben.txt");
+		
+		cout << "Введите текст для записи в текстовый файл\n";
+		cin >> escritor_boofer;
+
+		file_escritor << "PHP всеравно лучше...\n\n" << escritor_boofer << endl;
+		file_escritor.close();
+
+		cout << "Файл был успешно создан!\n" << "Его содержимое:\n\n";
+
+		char buff[64]; // буфер промежуточного хранения считываемого из файла текста
+		ifstream file_lector("mybenben.txt"); // открыли файл для чтения
+
+		file_lector.getline(buff, 64); // считали строку из файла
+		file_lector.close(); // закрываем файл
+		cout << buff << endl; // напечатали эту строку
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
+
+void task3_5() {
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+
+	float Sum, r, percent, mouthPay;
+	int years;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Сортировка букв----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		bool q = true;
+		do {
+			char s[80];
+			cout << ("Введите строку длинную в 30 символов: \n");
+			cin >> s;
+			unsigned long i = strlen(s);
+			if (i == 30) {
+				q = false;
+				antihypeSort(s, i);
+				cout << ("Отсортированная строка : %s\n", s);
+				break;
+
+			}
+			cout << "вы ввели строку длинной не 30 символов! \n";
+		} while (q);
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
 
 /*-----------------------------------------Главная функция-----------------------------------------*/
 
@@ -824,10 +933,10 @@ int main() {
 
 				switch (taskNumber) {
 				case 1: task3_1(); break;
-				case 2: task2_2(); break;
-				case 3: task2_3(); break;
-				case 4: task2_4(); break;
-				case 5: task2_5(); break;
+				case 2: task3_2(); break;
+				case 3: task3_3(); break;
+				case 4: task3_3(); break;
+				case 5: task3_5(); break;
 				case 0: isExit = 1;
 				}
 
