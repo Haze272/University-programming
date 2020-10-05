@@ -756,17 +756,19 @@ void task3_3() {
 	string command_empty;
 	bool isExit = false;
 
-	string escritor_boofer;
+	// string escritor_boofer;
 
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Копирование файла----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
-		ofstream file_escritor("mybenben.txt");
-		
-		cout << "Введите текст для записи в текстовый файл\n";
-		cin >> escritor_boofer;
 
-		file_escritor << "PHP всеравно лучше...\n\n" << escritor_boofer << endl;
+		char damnbuff[64];
+		ofstream file_escritor("mybenben.txt");
+
+		cout << "Введите текст для записи в текстовый файл максимальное число символов - 64\n";
+		(cin >> damnbuff).get();
+
+		file_escritor << damnbuff << endl;
 		file_escritor.close();
 
 		cout << "Файл был успешно создан!\n" << "Его содержимое:\n\n";
@@ -777,6 +779,32 @@ void task3_3() {
 		file_lector.getline(buff, 64); // считали строку из файла
 		file_lector.close(); // закрываем файл
 		cout << buff << endl; // напечатали эту строку
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
+
+void task3_4() {
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Фильтр----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+
+		char buffer[64]; // буфер промежуточного хранения считываемого из файла текста
+		ifstream file_lector("mybenben.txt");
+
+		file_lector.getline(buffer, 64);
+		for (int i = 0; i < 63; i++) {
+			cout << buffer;
+		}
 
 		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 		cin >> command_empty;
@@ -935,7 +963,7 @@ int main() {
 				case 1: task3_1(); break;
 				case 2: task3_2(); break;
 				case 3: task3_3(); break;
-				case 4: task3_3(); break;
+				case 4: task3_4(); break;
 				case 5: task3_5(); break;
 				case 0: isExit = 1;
 				}
