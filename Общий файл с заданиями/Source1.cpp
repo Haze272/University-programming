@@ -761,20 +761,38 @@ void task3_3() {
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Копирование файла----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
-
-		char damnbuff[64];
+		/*
+		string damnbuff;
 		ofstream file_escritor("mybenben.txt");
 
 		cout << "Введите текст для записи в текстовый файл максимальное число символов - 64\n";
-		(cin >> damnbuff).get();
+		getline(cin, damnbuff);
 
 		file_escritor << damnbuff << endl;
 		file_escritor.close();
+		*/
+		string damnbuff;
+
+		cout << "Вводите слова поочерёдно через enter, ввод нуля означит конец.\n";
+
+		bool isExit2 = false;
+		ofstream out("govno.txt");
+		do {
+			getline(cin, damnbuff);
+			if (damnbuff == "0") {
+				isExit2 = true;
+				out.close();
+				system("cls");
+			}
+			else {
+				out << damnbuff << " ";
+			}
+		} while (!isExit2);
 
 		cout << "Файл был успешно создан!\n" << "Его содержимое:\n\n";
 
 		char buff[64]; // буфер промежуточного хранения считываемого из файла текста
-		ifstream file_lector("mybenben.txt"); // открыли файл для чтения
+		ifstream file_lector("govno.txt"); // открыли файл для чтения
 
 		file_lector.getline(buff, 64); // считали строку из файла
 		file_lector.close(); // закрываем файл
@@ -797,18 +815,30 @@ void task3_4() {
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Фильтр----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
+		ifstream file_lector("govno.txt");
+		int b;
 
-		char buffer[64]; // буфер промежуточного хранения считываемого из файла текста
-		ifstream file_lector("mybenben.txt");
-
-		file_lector.getline(buffer, 64);
-		for (int i = 0; i < 63; i++) {
-			cout << buffer;
-		}
+		do
+		{
+			// пробуем считать число
+			if (file_lector >> b)
+			{
+				// если считали число - выводим
+				cout << b << endl;
+			}
+			else
+			{
+				// если считали не число, очищаем ошибки
+				file_lector.clear();
+				// пропускаем символы до следующего пробела
+				file_lector.ignore(1, ' ');
+			}
+		} while (!file_lector.eof()); // eof() - функция, определяющая закончились ли данные в источнике
 
 		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 		cin >> command_empty;
 		if (command_empty == "!exit") {
+			file_lector.close();
 			isExit = true;
 		}
 		system("cls");
@@ -820,10 +850,42 @@ void task3_5() {
 	string command_empty;
 	bool isExit = false;
 
-	float Sum, r, percent, mouthPay;
-	int years;
-
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Сортировка букв----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		bool q = true;
+		do {
+			char s[80];
+			cout << ("Введите строку длинную в 30 символов: \n");
+			cin >> s;
+			unsigned long i = strlen(s);
+			if (i == 30) {
+				q = false;
+				antihypeSort(s, i);
+				cout << ("Отсортированная строка : %s\n", s);
+				break;
+
+			}
+			cout << "вы ввели строку длинной не 30 символов! \n";
+		} while (q);
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
+
+/*-----------------------------------------Четвёртая неделя-----------------------------------------*/
+
+void task4_1() {
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Файл----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
 		bool q = true;
@@ -874,6 +936,7 @@ int main() {
 		cout << "№1 - Первая неделя\n";
 		cout << "№2 - Вторая неделя\n";
 		cout << "№3 - Третья неделя\n";
+		cout << "№4 - Четвертая неделя (В процессе)\n";
 		cout << "Ввод нуля завершит программу\n\n";
 
 		semanaNumero = inputInt(0, 3);
@@ -968,6 +1031,40 @@ int main() {
 				case 0: isExit = 1;
 				}
 
+				system("cls");
+			} while (!isExit);
+
+			break;
+		case 4:
+			do {
+				system("cls");
+
+				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
+
+				cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
+				cout << endl;
+				cout << "№1 - задание \"Файл\"\n";
+				cout << "№2 - задание \"Знак числа\" \n";
+				cout << "№3 - задание \"Геометрические фигуры\" \n";
+				cout << "№4 - задание \"Былая слава\" \n";
+				cout << "№5 - задание \"Синусоида\" \n\n";
+				cout << "№6 - задание \"Автоматный распознаватель\" \n\n";
+				cout << "№7 - задание \"Генератор случайных чисел\" \n\n";
+				cout << "Ввод нуля выйдет в меню выбора недели\n\n";
+
+				taskNumber = inputInt(0, 7);
+				system("cls");
+
+				switch (taskNumber) {
+				case 1: task4_1(); break;
+				case 2: task4_1(); break;
+				case 3: task4_1(); break;
+				case 4: task4_1(); break;
+				case 5: task4_1(); break;
+				case 6: task4_1(); break;
+				case 7: task4_1(); break;
+				case 0: isExit = 1;
+				}
 				system("cls");
 			} while (!isExit);
 
