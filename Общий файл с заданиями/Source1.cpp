@@ -15,6 +15,81 @@
 
 using namespace std;
 
+enum Color : int
+{
+	BLACK = 0,
+	RED = 1,
+	GREEN = 2,
+	BROWN = 3,
+	BLUE = 4,
+	MAGENTA = 5,
+	CYAN = 6,
+	GREY = 7,
+	YELLOW = 8,
+	LRED = 9,
+	LGREEN = 10,
+	LBLUE = 11,
+	LMAGENTA = 12,
+	LCYAN = 13,
+	WHITE = 14
+};
+
+// Генерируем рандомное число между значениями min и max.
+// Предполагается, что функцию srand() уже вызывали
+int getRandomNumber(int min, int max)
+{
+	static const double fraction = 1.0 / (static_cast<double>(RAND_MAX) + 1.0);
+	// Равномерно распределяем рандомное число в нашем диапазоне
+	return static_cast<int>(rand() * fraction * (max - min + 1) + min);
+}
+
+Color colours[15] = {
+	BLACK, RED, GREEN,
+	BROWN, BLUE, MAGENTA,
+	CYAN, GREY, YELLOW, LRED,
+	LGREEN, LBLUE, LMAGENTA, LCYAN,
+	WHITE
+};
+
+int randCol = getRandomNumber(1, 14);
+Color govnishe = colours[randCol];
+
+const int ColorCount = static_cast<int>(WHITE) + 1;
+
+// Устанавливает указанный цвет в консоли
+void SetColorConsole(Color color)
+{
+	static WORD WinColorFG[ColorCount] =
+	{
+		0,                                                                         // BLACK
+		FOREGROUND_RED,                                                            // RED
+		FOREGROUND_GREEN,                                                          // GREEN
+		FOREGROUND_RED | FOREGROUND_GREEN,                                         // BROWN
+		FOREGROUND_BLUE,                                                           // BLUE
+		FOREGROUND_RED | FOREGROUND_BLUE,                                          // MAGENTA
+		FOREGROUND_GREEN | FOREGROUND_BLUE,                                        // CYAN
+		FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE,                       // WHITE
+		FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY,                  // YELLOW
+		FOREGROUND_RED | FOREGROUND_INTENSITY,                                     // RED_BOLD
+		FOREGROUND_GREEN | FOREGROUND_INTENSITY,                                   // GREEN_BOLD
+		FOREGROUND_BLUE | FOREGROUND_INTENSITY,                                    // BLUE_BOLD
+		FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY,                   // MAGENTA_BOLD
+		FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY,                 // CYAN_BOLD
+		FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY // WHITE_BOLD
+	};
+
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, WinColorFG[color]);
+}
+
+// Использует стандартный цвет
+void ResetColorConsole()
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);
+}
+
+
 
 /*-----------------------------------------Раздел с вспомогательными функциям-----------------------------------------*/
 
@@ -116,6 +191,7 @@ double antihypeRoot(double x, double n)
 /*-----------------------------------------Первая неделя-----------------------------------------*/
 
 void task1_1() {
+	SetColorConsole(govnishe);
 	string yourName;
 	string command_empty;
 	bool isExit = false;
@@ -142,6 +218,7 @@ void task1_1() {
 }
 
 void task1_2() {
+	SetColorConsole(govnishe);
 	system("cls");
 	double calculateNumberFirst, calculateNumberSecond, calculateResult;
 	char calculateOperator;
@@ -1055,6 +1132,63 @@ void task4_3() {
 	} while (!isExit);
 }
 
+void task4_4() {
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Былая слава----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		int y = 0;
+		bool q = true;
+		do {
+			if (y < 6) {
+				for (int i = 0; i < 8; i++) {
+					cout << "* ";
+				}
+				if (y == 1 or y == 3 or y == 5) {
+					for (int i = 7; i < 45; i++) {
+						cout << " ";
+					}
+				}
+				else
+					for (int i = 7; i < 45; i++) {
+						cout << "-";
+					}
+				if (y <= 6) {
+					cout << "\n";
+					y++;
+				}
+			}
+			else if (y >= 6 and y < 13) {
+				if (y == 7 or y == 9 or y == 11 or y == 13) {
+					for (int i = 0; i < 54; i++) {
+						cout << " ";
+					}
+				}
+				else
+					for (int i = 0; i < 54; i++) {
+						std::cout << "-";
+					}
+				std::cout << "\n";
+				y++;
+			}
+			else
+				q = false;
+		} while (q);
+
+
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
+
 /*-----------------------------------------Главная функция-----------------------------------------*/
 
 
@@ -1066,7 +1200,8 @@ int main() {
 
 	// Русская локализация.
 	setlocale(LC_ALL, "Russian");
-
+	Color govnishe = colours[randCol];
+	SetColorConsole(govnishe);
 	cout << "Домашняя работа №1 Беркунова Степан" << endl;
 
 	int taskNumber;
@@ -1088,7 +1223,8 @@ int main() {
 		case 1:
 			do {
 				system("cls");
-
+				Color govnishe = colours[randCol];
+				SetColorConsole(govnishe);
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
 				cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
@@ -1118,7 +1254,8 @@ int main() {
 		case 2:
 			do {
 				system("cls");
-
+				Color govnishe = colours[randCol];
+				SetColorConsole(govnishe);
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
 				cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
@@ -1149,7 +1286,8 @@ int main() {
 		case 3:
 			do {
 				system("cls");
-
+				Color govnishe = colours[randCol];
+				SetColorConsole(govnishe);
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
 				cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
@@ -1180,7 +1318,7 @@ int main() {
 		case 4:
 			do {
 				system("cls");
-
+				SetColorConsole(govnishe);
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
 				cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
@@ -1201,7 +1339,7 @@ int main() {
 				case 1: task4_1(); break;
 				case 2: task4_2(); break;
 				case 3: task4_3(); break;
-				case 4: task4_1(); break;
+				case 4: task4_4(); break;
 				case 5: task4_1(); break;
 				case 6: task4_1(); break;
 				case 7: task4_1(); break;
