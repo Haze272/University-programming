@@ -15,6 +15,84 @@
 
 using namespace std;
 
+enum Color : int
+{
+	BLACK = 0,
+	RED = 1,
+	GREEN = 2,
+	BROWN = 3,
+	BLUE = 4,
+	MAGENTA = 5,
+	CYAN = 6,
+	GREY = 7,
+	YELLOW = 8,
+	LRED = 9,
+	LGREEN = 10,
+	LBLUE = 11,
+	LMAGENTA = 12,
+	LCYAN = 13,
+	WHITE = 14
+};
+
+const int ColorCount = static_cast<int>(WHITE) + 1;
+
+// Устанавливает указанный цвет в консоли
+void SetColorConsole(Color color)
+{
+	static WORD WinColorFG[ColorCount] =
+	{
+		0,                                                                         // BLACK
+		FOREGROUND_RED,                                                            // RED
+		FOREGROUND_GREEN,                                                          // GREEN
+		FOREGROUND_RED | FOREGROUND_GREEN,                                         // BROWN
+		FOREGROUND_BLUE,                                                           // BLUE
+		FOREGROUND_RED | FOREGROUND_BLUE,                                          // MAGENTA
+		FOREGROUND_GREEN | FOREGROUND_BLUE,                                        // CYAN
+		FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE,                       // WHITE
+		FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY,                  // YELLOW
+		FOREGROUND_RED | FOREGROUND_INTENSITY,                                     // RED_BOLD
+		FOREGROUND_GREEN | FOREGROUND_INTENSITY,                                   // GREEN_BOLD
+		FOREGROUND_BLUE | FOREGROUND_INTENSITY,                                    // BLUE_BOLD
+		FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY,                   // MAGENTA_BOLD
+		FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY,                 // CYAN_BOLD
+		FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY // WHITE_BOLD
+	};
+
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, WinColorFG[color]);
+}
+
+// Использует стандартный цвет
+void ResetColorConsole()
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);
+}
+
+// Генерируем рандомное число между значениями min и max.
+// Предполагается, что функцию srand() уже вызывали
+int getRandomNumber(int min, int max)
+{
+	static const double fraction = 1.0 / (static_cast<double>(RAND_MAX) + 1.0);
+	// Равномерно распределяем рандомное число в нашем диапазоне
+	return static_cast<int>(rand() * fraction * (max - min + 1) + min);
+}
+
+Color colours[15] = {
+	BLACK, RED, GREEN,
+	BROWN, BLUE, MAGENTA,
+	CYAN, GREY, YELLOW, LRED,
+	LGREEN, LBLUE, LMAGENTA, LCYAN,
+	WHITE
+};
+
+void khanZamai() {
+	int randCol = getRandomNumber(1, 14);
+	Color govnishe = colours[randCol];
+	SetColorConsole(govnishe);
+}
+
+
 /*-----------------------------------------Раздел с вспомогательными функциям-----------------------------------------*/
 
 
@@ -115,6 +193,7 @@ double antihypeRoot(double x, double n)
 /*-----------------------------------------Первая неделя-----------------------------------------*/
 
 void task1_1() {
+	khanZamai();
 	string yourName;
 	string command_empty;
 	bool isExit = false;
@@ -141,6 +220,7 @@ void task1_1() {
 }
 
 void task1_2() {
+	khanZamai();
 	system("cls");
 	double calculateNumberFirst, calculateNumberSecond, calculateResult;
 	char calculateOperator;
@@ -229,6 +309,7 @@ void task1_2() {
 }
 
 void task1_3() {
+	khanZamai();
 	system("cls");
 	bool isExit = false;
 	string command_empty;
@@ -276,7 +357,7 @@ void task1_3() {
 }
 
 void task1_4() {
-
+	khanZamai();
 	// При написании реализации решения квадратного уравнения важно понимать, что помимо развествления при дискриминанте
 	// присутствует также деление на ноль, бесконечное множество и отсутствие решения.
 
@@ -373,7 +454,7 @@ void task1_4() {
 }
 
 void task1_5() {
-
+	khanZamai();
 	// В условии говориться, то светло может быть при двух случаях:
 	// 1) На улице день и открыты шторы
 	// 2) Включена лампа, причём если лампа включена то другие факторы не важны, всё равно будет светло.
@@ -418,6 +499,7 @@ void task1_5() {
 /*-----------------------------------------Вторая неделя-----------------------------------------*/
 
 void task2_1() {
+	khanZamai();
 	string command_empty;
 	bool isExit = false;
 
@@ -456,6 +538,7 @@ void task2_1() {
 }
 
 void task2_2() {
+	khanZamai();
 	string command_empty;
 	bool isExit = false;
 
@@ -543,6 +626,7 @@ void task2_2() {
 }
 
 void task2_3() {
+	khanZamai();
 	string command_empty;
 	bool isExit = false;
 
@@ -608,6 +692,7 @@ void task2_3() {
 }
 
 void task2_4() {
+	khanZamai();
 	string command_empty;
 	bool isExit = false;
 
@@ -635,6 +720,7 @@ void task2_4() {
 }
 
 void task2_5() {
+	khanZamai();
 	system("cls");
 	string command_empty;
 	bool isExit = false;
@@ -680,6 +766,7 @@ void task2_5() {
 /*-----------------------------------------Третья неделя-----------------------------------------*/
 
 void task3_1() {
+	khanZamai();
 	system("cls");
 	string command_empty;
 	bool isExit = false;
@@ -732,6 +819,7 @@ void task3_1() {
 }
 
 void task3_2() {
+	khanZamai();
 	system("cls");
 	string command_empty;
 	bool isExit = false;
@@ -768,6 +856,7 @@ void task3_2() {
 }
 
 void task3_3() {
+	khanZamai();
 	system("cls");
 	string command_empty;
 	bool isExit = false;
@@ -822,6 +911,7 @@ void task3_3() {
 }
 
 void task3_4() {
+	khanZamai();
 	system("cls");
 	string command_empty;
 	bool isExit = false;
@@ -860,6 +950,7 @@ void task3_4() {
 }
 
 void task3_5() {
+	khanZamai();
 	system("cls");
 	string command_empty;
 	bool isExit = false;
@@ -895,6 +986,7 @@ void task3_5() {
 /*-----------------------------------------Четвёртая неделя-----------------------------------------*/
 
 void task4_1() {
+	khanZamai();
 	system("cls");
 	string command_empty;
 	bool isExit = false;
@@ -955,6 +1047,7 @@ int sign(float x) {
 }
 
 void task4_2() {
+	khanZamai();
 	system("cls");
 	string command_empty;
 	bool isExit = false;
@@ -999,6 +1092,7 @@ float areaDeCirculo(float x) {
 }
 
 void task4_3() {
+	khanZamai();
 	system("cls");
 	string command_empty;
 	bool isExit = false;
@@ -1055,6 +1149,7 @@ void task4_3() {
 }
 
 void task4_4() {
+	khanZamai();
 	system("cls");
 	string command_empty;
 	bool isExit = false;
@@ -1128,6 +1223,7 @@ int main() {
 	int semanaNumero;
 
 	while (true) {
+		khanZamai();
 		cout << "Введите номер недели с домашним заданием (1-4)" << endl;
 		cout << endl;
 		cout << "№1 - Первая неделя\n";
@@ -1142,6 +1238,7 @@ int main() {
 		switch (semanaNumero) {
 		case 1:
 			do {
+				khanZamai();
 				system("cls");
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
@@ -1171,6 +1268,7 @@ int main() {
 			break;
 		case 2:
 			do {
+				khanZamai();
 				system("cls");
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
@@ -1201,6 +1299,7 @@ int main() {
 			break;
 		case 3:
 			do {
+				khanZamai();
 				system("cls");
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
@@ -1231,6 +1330,7 @@ int main() {
 			break;
 		case 4:
 			do {
+				khanZamai();
 				system("cls");
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
