@@ -1,4 +1,4 @@
-//
+﻿//
 //
 // Все домашние работы по процедурному программированию
 // Беркунов Степан Игоревич, ИНБО-15-20
@@ -14,82 +14,6 @@
 #include <fstream>
 
 using namespace std;
-
-enum Color : int
-{
-	BLACK = 0,
-	RED = 1,
-	GREEN = 2,
-	BROWN = 3,
-	BLUE = 4,
-	MAGENTA = 5,
-	CYAN = 6,
-	GREY = 7,
-	YELLOW = 8,
-	LRED = 9,
-	LGREEN = 10,
-	LBLUE = 11,
-	LMAGENTA = 12,
-	LCYAN = 13,
-	WHITE = 14
-};
-
-// Генерируем рандомное число между значениями min и max.
-// Предполагается, что функцию srand() уже вызывали
-int getRandomNumber(int min, int max)
-{
-	static const double fraction = 1.0 / (static_cast<double>(RAND_MAX) + 1.0);
-	// Равномерно распределяем рандомное число в нашем диапазоне
-	return static_cast<int>(rand() * fraction * (max - min + 1) + min);
-}
-
-Color colours[15] = {
-	BLACK, RED, GREEN,
-	BROWN, BLUE, MAGENTA,
-	CYAN, GREY, YELLOW, LRED,
-	LGREEN, LBLUE, LMAGENTA, LCYAN,
-	WHITE
-};
-
-int randCol = getRandomNumber(1, 14);
-Color govnishe = colours[randCol];
-
-const int ColorCount = static_cast<int>(WHITE) + 1;
-
-// Устанавливает указанный цвет в консоли
-void SetColorConsole(Color color)
-{
-	static WORD WinColorFG[ColorCount] =
-	{
-		0,                                                                         // BLACK
-		FOREGROUND_RED,                                                            // RED
-		FOREGROUND_GREEN,                                                          // GREEN
-		FOREGROUND_RED | FOREGROUND_GREEN,                                         // BROWN
-		FOREGROUND_BLUE,                                                           // BLUE
-		FOREGROUND_RED | FOREGROUND_BLUE,                                          // MAGENTA
-		FOREGROUND_GREEN | FOREGROUND_BLUE,                                        // CYAN
-		FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE,                       // WHITE
-		FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY,                  // YELLOW
-		FOREGROUND_RED | FOREGROUND_INTENSITY,                                     // RED_BOLD
-		FOREGROUND_GREEN | FOREGROUND_INTENSITY,                                   // GREEN_BOLD
-		FOREGROUND_BLUE | FOREGROUND_INTENSITY,                                    // BLUE_BOLD
-		FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY,                   // MAGENTA_BOLD
-		FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY,                 // CYAN_BOLD
-		FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY // WHITE_BOLD
-	};
-
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, WinColorFG[color]);
-}
-
-// Использует стандартный цвет
-void ResetColorConsole()
-{
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);
-}
-
-
 
 /*-----------------------------------------Раздел с вспомогательными функциям-----------------------------------------*/
 
@@ -191,7 +115,6 @@ double antihypeRoot(double x, double n)
 /*-----------------------------------------Первая неделя-----------------------------------------*/
 
 void task1_1() {
-	SetColorConsole(govnishe);
 	string yourName;
 	string command_empty;
 	bool isExit = false;
@@ -218,7 +141,6 @@ void task1_1() {
 }
 
 void task1_2() {
-	SetColorConsole(govnishe);
 	system("cls");
 	double calculateNumberFirst, calculateNumberSecond, calculateResult;
 	char calculateOperator;
@@ -829,7 +751,7 @@ void task3_2() {
 		cout << endl;
 
 		cout << "Введiть кiлькiсть рокiв\n";
-		years = inputFloat(0, 2147483647);
+		years = inputInt(0, 2147483647);
 		cout << endl;
 		years *= 12;
 
@@ -1060,18 +982,18 @@ void task4_2() {
 	} while (!isExit);
 }
 
-int areaDeRectangulo(int x, int y) {
+float areaDeRectangulo(float x, float y) {
 	int result = x * y;
 	return result;
 }
 
-float areaDeTriangulo(int x, int y, int z) {
+float areaDeTriangulo(float x, float y, float z) {
 	float poluPoker = (x + y + z) * 0.5;
 	float result = sqrt(poluPoker * (poluPoker - x) * (poluPoker - y) * (poluPoker - z));
 	return result;
 }
 
-float areaDeCirculo(int x) {
+float areaDeCirculo(float x) {
 	float result = M_PI * pow(x, 2);
 	return result;
 }
@@ -1200,8 +1122,6 @@ int main() {
 
 	// Русская локализация.
 	setlocale(LC_ALL, "Russian");
-	Color govnishe = colours[randCol];
-	SetColorConsole(govnishe);
 	cout << "Домашняя работа №1 Беркунова Степан" << endl;
 
 	int taskNumber;
@@ -1223,8 +1143,6 @@ int main() {
 		case 1:
 			do {
 				system("cls");
-				Color govnishe = colours[randCol];
-				SetColorConsole(govnishe);
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
 				cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
@@ -1254,8 +1172,6 @@ int main() {
 		case 2:
 			do {
 				system("cls");
-				Color govnishe = colours[randCol];
-				SetColorConsole(govnishe);
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
 				cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
@@ -1286,8 +1202,6 @@ int main() {
 		case 3:
 			do {
 				system("cls");
-				Color govnishe = colours[randCol];
-				SetColorConsole(govnishe);
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
 				cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
@@ -1318,7 +1232,6 @@ int main() {
 		case 4:
 			do {
 				system("cls");
-				SetColorConsole(govnishe);
 				cout << "\n\n\n\n\n----------------Вы вышли в главное меню----------------\n\n\n\n\n" << endl;
 
 				cout << "Для просмотра заданий введите номер задания (1-5)" << endl;
