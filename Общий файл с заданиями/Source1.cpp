@@ -1,4 +1,4 @@
-﻿//
+//
 //
 // Все домашние работы по процедурному программированию
 // Беркунов Степан Игоревич, ИНБО-15-20
@@ -104,6 +104,11 @@ void antihypeSort(char* i, int n) {
 		}
 }
 
+double antihypeRoot(double x, double n)
+{
+	return pow(x, 1 / n);
+}
+
 
 /*-----------------------------------------Раздел с заданиями-----------------------------------------*/
 
@@ -147,10 +152,10 @@ void task1_2() {
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Арифметика----------------\n\n\n\n\n\n\n\n\n\n";
 	do {
 		cout << "Введите значение переменной а" << endl;
-		calculateNumberFirst = inputDouble(-2147483648, 2147483647);
+		calculateNumberFirst = inputDouble(-2147483647, 2147483647);
 
 		cout << "Введите значение переменной b" << endl;
-		calculateNumberSecond = inputDouble(-2147483648, 2147483647);
+		calculateNumberSecond = inputDouble(-2147483647, 2147483647);
 
 		cout << "Введите операцию, которую вы хотите совершить с введёнными переменными\n";
 		cout << "\"+\" - Сложение\n" << "\"-\" - Вычитание\n" << "\"*\" - Умножение\n" << "\"/\" - Деление\n";
@@ -234,10 +239,10 @@ void task1_3() {
 
 	do {
 		cout << "Для уравнения вида bx + c = 0 введите коеффицент b" << endl;
-		bLine = inputDouble(-2147483648, 2147483647);
+		bLine = inputDouble(-2147483647, 2147483647);
 
 		cout << "Для уравнения вида bx + c = 0 введите свободный коеффицент c" << endl;
-		cLine = inputDouble(-2147483648, 2147483647);
+		cLine = inputDouble(-2147483647, 2147483647);
 
 		try {
 			if (bLine == 0 && cLine != 0) {
@@ -287,13 +292,13 @@ void task1_4() {
 
 	do {
 		cout << "Для уравнения вида ax^2 + bx + c = 0 введите коеффицент a" << endl;
-		aQuad = inputDouble(-2147483648, 2147483647);
+		aQuad = inputDouble(-2147483647, 2147483647);
 
 		cout << "Для уравнения вида ax^2 + bx + c = 0 введите коеффицент b" << endl;
-		bQuad = inputDouble(-2147483648, 2147483647);
+		bQuad = inputDouble(-2147483647, 2147483647);
 
 		cout << "Для уравнения вида ax^2 + bx + c = 0 введите коеффицент c" << endl;
-		cQuad = inputDouble(-2147483648, 2147483647);
+		cQuad = inputDouble(-2147483647, 2147483647);
 
 		try {
 			if (aQuad == 0 && bQuad != 0) {
@@ -464,10 +469,10 @@ void task2_2() {
 		exceptionCounter = 0;
 
 		cout << "Введите значение параметра a:" << endl;
-		a = inputDouble(-2147483648, 2147483647);
+		a = inputDouble(-2147483647, 2147483647);
 
 		cout << "Введите значение переменной x:" << endl;
-		x = inputDouble(-2147483648, 2147483647);
+		x = inputDouble(-2147483647, 2147483647);
 
 		try {
 			if (abs(x) <= 0 && a - pow(x, 2) < 0) {
@@ -548,13 +553,13 @@ void task2_3() {
 
 	do {
 		cout << "Введите значение параметра b:" << endl;
-		b = inputDouble(-2147483648, 2147483647);
+		b = inputDouble(-2147483647, 2147483647);
 
 		cout << "Введите значение переменной x:" << endl;
-		x = inputDouble(-2147483648, 2147483647);
+		x = inputDouble(-2147483647, 2147483647);
 
 		cout << "Введите значение переменной y:" << endl;
-		y = inputDouble(-2147483648, 2147483647);
+		y = inputDouble(-2147483647, 2147483647);
 
 		try {
 			if (b - y <= 0 && b - x < 0) {
@@ -641,7 +646,7 @@ void task2_5() {
 
 	do {
 		cout << "Введите число для табулирования функции\n";
-		tabel = inputDouble(-2147483648, 2147483647);
+		tabel = inputDouble(-2147483647, 2147483647);
 		cout << endl;
 		tabel -= 4;
 		int counter = 1;
@@ -738,11 +743,23 @@ void task3_2() {
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Ссуда----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
-		cout << "Введите сумму займа\n";
+		cout << "Введiть суму позики\n";
 		Sum = inputFloat(0, 2147483647);
 		cout << endl;
 
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cout << "Введiть мicячну виплату!\n";
+		mouthPay = inputFloat(0, 2147483647);
+		cout << endl;
+
+		cout << "Введiть кiлькiсть рокiв\n";
+		years = inputFloat(0, 2147483647);
+		cout << endl;
+		years *= 12;
+
+		percent = (((mouthPay * years) / Sum) - 1) * 100;
+		cout << percent << " - це вiдсоток\n";
+
+		cout << "\nПродовжимо? Напишiть все що завгодно для продовження, !exit якщо хочете вийти з програми\n";
 		cin >> command_empty;
 		if (command_empty == "!exit") {
 			isExit = true;
@@ -764,10 +781,8 @@ void task3_3() {
 		/*
 		string damnbuff;
 		ofstream file_escritor("mybenben.txt");
-
 		cout << "Введите текст для записи в текстовый файл максимальное число символов - 64\n";
 		getline(cin, damnbuff);
-
 		file_escritor << damnbuff << endl;
 		file_escritor.close();
 		*/
@@ -884,25 +899,152 @@ void task4_1() {
 	system("cls");
 	string command_empty;
 	bool isExit = false;
+	float Zamai, Sum;
 
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Файл----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
-		bool q = true;
-		do {
-			char s[80];
-			cout << ("Введите строку длинную в 30 символов: \n");
-			cin >> s;
-			unsigned long i = strlen(s);
-			if (i == 30) {
-				q = false;
-				antihypeSort(s, i);
-				cout << ("Отсортированная строка : %s\n", s);
-				break;
+		Sum = 0;
 
+		cout << "Вводите 10 чисел поочерёдно через enter\n";
+		ofstream damnson("fifa202n.txt");
+
+		for (int i = 0; i < 10; i++) {
+			Zamai = inputFloat(-2147483647, 2147483647);
+			damnson << Zamai << endl;
+		}
+		damnson.close();
+
+
+		cout << "Файл был успешно создан!\n\n";
+
+		ifstream file_leer("fifa202n.txt");
+		int b;
+
+		do
+		{
+			// пробуем считать число
+			if (file_leer >> b)
+			{
+				Sum += b;
 			}
-			cout << "вы ввели строку длинной не 30 символов! \n";
-		} while (q);
+			else
+			{
+				file_leer.clear();
+				file_leer.ignore(1, ' ');
+			}
+		} while (!file_leer.eof());
+
+		cout << "Сумма чисел в файле равна: " << Sum << endl;
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
+
+int sign(float x) {
+	if (x > 0)
+		return 1;
+	else if (x == 0)
+		return 0;
+	else if (x < 0)
+		return -1;
+}
+
+void task4_2() {
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+	float numero;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Знак числа----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		cout << "Введите число\n";
+		numero = inputFloat(-2147483647, 2147483647);
+
+		if (sign(numero) == 1)
+			cout << "Число " << numero << " - положительное.";
+		else if (sign(numero) == 0)
+			cout << "Число " << numero << " - не положительное и не отрицательное.";
+		else if (sign(numero) == -1)
+			cout << "Число " << numero << " - отрицательное.";
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
+
+int areaDeRectangulo(int x, int y) {
+	int result = x * y;
+	return result;
+}
+
+float areaDeTriangulo(int x, int y, int z) {
+	float poluPoker = (x + y + z) * 0.5;
+	float result = sqrt(poluPoker * (poluPoker - x) * (poluPoker - y) * (poluPoker - z));
+	return result;
+}
+
+float areaDeCirculo(int x) {
+	float result = M_PI * pow(x, 2);
+	return result;
+}
+
+void task4_3() {
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+	int choice;
+	float area, rect1, rect2, tri1, tri2, tri3, radius;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Геометрические фигуры----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		cout << "Плоащадь какой фигуры необходимо узнать?\n";
+		cout << "1 - Прямоугольник\n";
+		cout << "2 - Треугольник\n";
+		cout << "3 - Окружность\n";
+		choice = inputInt(1, 3);
+
+		switch (choice) {
+		case 1:
+			cout << "Введите первую сторону прямоугольника\n";
+			rect1 = inputFloat(0, 2147483647);
+			cout << "Введите вторую сторону прямоугольника\n";
+			rect2 = inputFloat(0, 2147483647);
+
+			area = areaDeRectangulo(rect1, rect2);
+			cout << "Площадь прямоугольника равна " << area << endl;
+			break;
+		case 2:
+			cout << "Введите первую сторону треугольника\n";
+			tri1 = inputFloat(0, 2147483647);
+			cout << "Введите вторую сторону треугольника\n";
+			tri2 = inputFloat(0, 2147483647);
+			cout << "Введите третью сторону треугольника\n";
+			tri3 = inputFloat(0, 2147483647);
+
+			area = areaDeTriangulo(tri1, tri2, tri3);
+			cout << "Площадь треугольника равна " << area << endl;
+			break;
+		case 3:
+			cout << "Введите радиус окружности\n";
+			radius = inputFloat(0, 2147483647);
+
+			area = areaDeCirculo(radius);
+			cout << "Площадь окружности равна " << area << endl;
+			break;
+		}
+
 
 		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 		cin >> command_empty;
@@ -931,7 +1073,7 @@ int main() {
 	int semanaNumero;
 
 	while (true) {
-		cout << "Введите номер недели с домашним заданием (1-2)" << endl;
+		cout << "Введите номер недели с домашним заданием (1-4)" << endl;
 		cout << endl;
 		cout << "№1 - Первая неделя\n";
 		cout << "№2 - Вторая неделя\n";
@@ -939,7 +1081,7 @@ int main() {
 		cout << "№4 - Четвертая неделя (В процессе)\n";
 		cout << "Ввод нуля завершит программу\n\n";
 
-		semanaNumero = inputInt(0, 3);
+		semanaNumero = inputInt(0, 4);
 
 		bool isExit = false;
 		switch (semanaNumero) {
@@ -1016,8 +1158,8 @@ int main() {
 				cout << "№2 - задание \"Ссуда\"\n";
 				cout << "№3 - задание \"Копирование файла\"\n";
 				cout << "№4 - задание \"Фильтр\"\n";
-				cout << "№5 - задание \"Сортировка букв\"\n\n";
-				cout << "Ввод нуля выйдет в меню выбора недели\n\n";
+				cout << "№5 - задание \"Сортировка букв\"\n";
+				cout << "Ввод нуля выйдет в меню выбора недели\n";
 
 				taskNumber = inputInt(0, 5);
 				system("cls");
@@ -1047,18 +1189,18 @@ int main() {
 				cout << "№2 - задание \"Знак числа\" \n";
 				cout << "№3 - задание \"Геометрические фигуры\" \n";
 				cout << "№4 - задание \"Былая слава\" \n";
-				cout << "№5 - задание \"Синусоида\" \n\n";
-				cout << "№6 - задание \"Автоматный распознаватель\" \n\n";
-				cout << "№7 - задание \"Генератор случайных чисел\" \n\n";
-				cout << "Ввод нуля выйдет в меню выбора недели\n\n";
+				cout << "№5 - задание \"Синусоида\"\n";
+				cout << "№6 - задание \"Автоматный распознаватель\"\n";
+				cout << "№7 - задание \"Генератор случайных чисел\"\n";
+				cout << "Ввод нуля выйдет в меню выбора недели\n";
 
 				taskNumber = inputInt(0, 7);
 				system("cls");
 
 				switch (taskNumber) {
 				case 1: task4_1(); break;
-				case 2: task4_1(); break;
-				case 3: task4_1(); break;
+				case 2: task4_2(); break;
+				case 3: task4_3(); break;
 				case 4: task4_1(); break;
 				case 5: task4_1(); break;
 				case 6: task4_1(); break;
