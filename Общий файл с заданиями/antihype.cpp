@@ -13,6 +13,7 @@
 #define M_PI 3.14159265358979323846
 #include <fstream>
 
+
 using namespace std;
 
 enum Color : int
@@ -78,6 +79,7 @@ int getRandomNumber(int min, int max)
 	return static_cast<int>(rand() * fraction * (max - min + 1) + min);
 }
 
+
 Color colours[15] = {
 	BLACK, RED, GREEN,
 	BROWN, BLUE, MAGENTA,
@@ -87,7 +89,7 @@ Color colours[15] = {
 };
 
 void khanZamai() {
-	int randCol = getRandomNumber(1, 14);
+	int randCol = (rand() % 14) + 1;
 	Color govnishe = colours[randCol];
 	SetColorConsole(govnishe);
 }
@@ -1206,6 +1208,28 @@ void task4_4() {
 	} while (!isExit);
 }
 
+void task4_5() {
+	khanZamai();
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Синусоида----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		cout << "C'est govno, Marie.. \n";
+
+
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
+
 /*-----------------------------------------Главная функция-----------------------------------------*/
 
 
@@ -1353,7 +1377,7 @@ int main() {
 				case 2: task4_2(); break;
 				case 3: task4_3(); break;
 				case 4: task4_4(); break;
-				case 5: task4_1(); break;
+				case 5: task4_5(); break;
 				case 6: task4_1(); break;
 				case 7: task4_1(); break;
 				case 0: isExit = 1;
