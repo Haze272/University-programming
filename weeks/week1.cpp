@@ -1,4 +1,4 @@
-#include "../helpFunc/helpFunctions.h"
+﻿#include "../helpFunc/helpFunctions.h"
 #include "weeks.h"
 #include <iostream>
 
@@ -25,12 +25,7 @@ void task1_1() {
 		cin >> yourName;
 		cout << "Ваше имя - " << yourName << "\n";
 
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
-		}
-		system("cls");
+		isContinue();
 	} while (!isExit);
 }
 
@@ -162,12 +157,8 @@ void task1_3() {
 		equationLineSolve = -cLine / bLine;
 
 		cout << "\n\n\n\nРешение уравнения равно " << equationLineSolve;
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
-		}
-		system("cls");
+
+		isContinue();
 	} while (!isExit);
 }
 

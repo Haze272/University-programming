@@ -1,4 +1,4 @@
-#include "../helpFunc/helpFunctions.h"
+﻿#include "../helpFunc/helpFunctions.h"
 #include "weeks.h"
 #include <iostream>
 #include <fstream>
@@ -53,12 +53,7 @@ void task3_1() {
 		mouthPay = (Sum * r * pow(1 + r, years)) / (12 * (pow(1 + r, years) - 1));
 		cout << "\nМесячная выплата равна " << mouthPay << endl;
 
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
-		}
-		system("cls");
+		isContinue();
 	} while (!isExit);
 }
 
@@ -90,12 +85,7 @@ void task3_2() {
 		percent = (((mouthPay * years) / Sum) - 1) * 100;
 		cout << percent << " - це вiдсоток\n";
 
-		cout << "\nПродовжимо? Напишiть все що завгодно для продовження, !exit якщо хочете вийти з програми\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
-		}
-		system("cls");
+		isContinue();
 	} while (!isExit);
 }
 
@@ -145,12 +135,7 @@ void task3_3() {
 		file_lector.close(); // закрываем файл
 		cout << buff << endl; // напечатали эту строку
 
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
-		}
-		system("cls");
+		isContinue();
 	} while (!isExit);
 }
 
@@ -183,13 +168,7 @@ void task3_4() {
 			}
 		} while (!file_lector.eof()); // eof() - функция, определяющая закончились ли данные в источнике
 
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			file_lector.close();
-			isExit = true;
-		}
-		system("cls");
+		isContinue();
 	} while (!isExit);
 }
 
@@ -218,11 +197,6 @@ void task3_5() {
 			cout << "вы ввели строку длинной не 30 символов! \n";
 		} while (q);
 
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
-		}
-		system("cls");
+		isContinue();
 	} while (!isExit);
 }

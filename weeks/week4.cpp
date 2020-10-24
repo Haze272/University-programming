@@ -1,4 +1,4 @@
-#include "../helpFunc/helpFunctions.h"
+﻿#include "../helpFunc/helpFunctions.h"
 #include "weeks.h"
 #include <iostream>
 #include <string>
@@ -56,12 +56,7 @@ void task4_1() {
 
 		cout << "Сумма чисел в файле равна: " << Sum << endl;
 
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
-		}
-		system("cls");
+		isContinue();
 	} while (!isExit);
 }
 
@@ -94,12 +89,7 @@ void task4_2() {
 		else if (sign(numero) == -1)
 			cout << "Число " << numero << " - отрицательное.";
 
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
-		}
-		system("cls");
+		isContinue();
 	} while (!isExit);
 }
 
@@ -166,13 +156,7 @@ void task4_3() {
 			break;
 		}
 
-
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
-		}
-		system("cls");
+		isContinue();
 	} while (!isExit);
 }
 
@@ -223,14 +207,7 @@ void task4_4() {
 				q = false;
 		} while (q);
 
-
-
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
-		}
-		system("cls");
+		isContinue();
 	} while (!isExit);
 }
 
@@ -257,13 +234,23 @@ void task4_5() {
 			std::cout << '\n';
 		}
 
+		isContinue();
+	} while (!isExit);
+}
 
+void task4_6() {
+	khanZamai();
+	system("cls");
+	string command_empty;
+	bool isExit = false;
 
-		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-		cin >> command_empty;
-		if (command_empty == "!exit") {
-			isExit = true;
-		}
-		system("cls");
+	char romeSuccesful;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Автоматный распознаватель----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		romeSuccesful = inputRome();
+		cout << "ХУЙ";
+		isContinue();
 	} while (!isExit);
 }

@@ -1,4 +1,4 @@
-#include "helpFunctions.h"
+﻿#include "helpFunctions.h"
 #include <iostream>
 
 using namespace std;
@@ -100,4 +100,32 @@ void antihypeSort(char* i, int n) {
 double antihypeRoot(double x, double n)
 {
 	return pow(x, 1 / n);
+}
+
+void isContinue() {
+	cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+	cin >> command_empty;
+	if (command_empty == "!exit") {
+		isExit = true;
+	}
+	system("cls");
+}
+
+char inputRome() {
+	char sonya;
+	while (true) {
+		char sonya;
+		cout << "Введите знак" << endl;
+		if ((cin >> sonya).good() && ((sonya == 'I') || (sonya == 'V') || (sonya == 'X') || (sonya == 'L') || (sonya == 'C') || (sonya == 'D') || (sonya == 'D')) {
+			return sonya;
+			break;
+		}
+		if (cin.fail()) {
+			cin.clear();
+			cout << "Неверный ввод, повторите." << endl;
+		}
+		else {
+			cout << "Такого знака нет!\n";
+		}
+	}
 }

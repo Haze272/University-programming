@@ -34,3 +34,13 @@ void antihypeSort(char*, int);
 #define ANTIHYPEROOT
 double antihypeRoot(double, double);
 #endif
+
+#ifndef ISCONTINUE_H
+#define ISCONTINUE
+void isContinue();
+#endif
+
+#ifndef INPUTROME_H
+#define INPUTROME
+char inputRome();
+#endif
