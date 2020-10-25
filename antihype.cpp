@@ -236,7 +236,7 @@ int main() {
 				case 4: task4_4(); break;
 				case 5: task4_5(); break;
 				case 6: task4_6(); break;
-				case 7: task4_6(); break;
+				case 7: task4_7(); break;
 				case 0: isExit = 1;
 				}
 				system("cls");

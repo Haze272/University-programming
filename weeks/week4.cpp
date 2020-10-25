@@ -273,8 +273,9 @@ void task4_6() {
 	char romka[80];
 	int temka, culpa, culpaTres;
 	int resulto;
+	int romkaNum[80];
 
-	cout << "\n\n\n\n\n\n\n\n\n\n----------------Автоматный  хуй распознаватель----------------\n\n\n\n\n\n\n\n\n\n";
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Автоматный распознаватель----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
 		culpa = 0;
@@ -327,39 +328,62 @@ void task4_6() {
 		// Заменим римские цифры в массиве на их значения в арабской системе счисления
 		for (int k = 0; k <= temka; k++) {
 			if (romka[k] == 'I') {
-				romka[k] = 1;
+				romkaNum[k] = 1;
 			}
 			else if (romka[k] == 'V') {
-				romka[k] = 5;
+				romkaNum[k] = 5;
 			}
 			else if (romka[k] == 'X') {
-				romka[k] = 10;
+				romkaNum[k] = 10;
 			}
 			else if (romka[k] == 'L') {
-				romka[k] = 50;
+				romkaNum[k] = 50;
 			}
 			else if (romka[k] == 'C') {
-				romka[k] = 100;
+				romkaNum[k] = 100;
 			}
 			else if (romka[k] == 'D') {
-				romka[k] = 500;
+				romkaNum[k] = 500;
 			}
 			else if (romka[k] == 'M') {
-				romka[k] = 1000;
+				romkaNum[k] = 1000;
 			}
 		}
 
 		for (int m = 0; m < temka - 1; m++) {
-			if (romka[m] < romka[m + 1]) {
-				resulto -= romka[m];
+			if (romkaNum[m] < romkaNum[m + 1]) {
+				resulto -= romkaNum[m];
 			}
 			else {
-				resulto += romka[m];
+				resulto += romkaNum[m];
 			}
 		}
-		resulto += romka[temka - 1];
+		resulto += romkaNum[temka - 1];
 
 		cout << "Введённое вами число в арабской записи равно " << resulto << endl;
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
+
+void task4_7() {
+	khanZamai();
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+
+	int m, i, c;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Генератор случайных чисел----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		cout << "Введите число\n";
+		
 
 		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 		cin >> command_empty;

@@ -110,3 +110,8 @@ void task4_5();
 #define TASK4_6
 void task4_6();
 #endif
+
+#ifndef TASK4_7_H
+#define TASK4_7
+void task4_7();
+#endif
