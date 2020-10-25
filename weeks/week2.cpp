@@ -38,7 +38,12 @@ void task2_1() {
 		Area = M_PI * (pow(radiusOut, 2) + forming * (radiusOut + radiusIn) + pow(radiusIn, 2));
 		cout << "Площадь вашего усечённого конуса равна " << Area << endl;
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -120,7 +125,12 @@ void task2_2() {
 			}
 			cout << "\n\n\n\nОтвет равен " << w;
 
-			isContinue();
+			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+			cin >> command_empty;
+			if (command_empty == "!exit") {
+				isExit = true;
+			}
+			system("cls");
 		}
 	} while (!isExit);
 }
@@ -182,7 +192,12 @@ void task2_3() {
 		z = log(b - y) * sqrt(b - x);
 		cout << "\n\n\n\nФункция равна " << z;
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -205,7 +220,12 @@ void task2_4() {
 			cout << order << endl;
 		}
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -244,6 +264,11 @@ void task2_5() {
 			counter++;
 		}
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }

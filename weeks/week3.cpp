@@ -53,7 +53,12 @@ void task3_1() {
 		mouthPay = (Sum * r * pow(1 + r, years)) / (12 * (pow(1 + r, years) - 1));
 		cout << "\nМесячная выплата равна " << mouthPay << endl;
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -85,7 +90,12 @@ void task3_2() {
 		percent = (((mouthPay * years) / Sum) - 1) * 100;
 		cout << percent << " - це вiдсоток\n";
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -135,7 +145,12 @@ void task3_3() {
 		file_lector.close(); // закрываем файл
 		cout << buff << endl; // напечатали эту строку
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -168,7 +183,12 @@ void task3_4() {
 			}
 		} while (!file_lector.eof()); // eof() - функция, определяющая закончились ли данные в источнике
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -197,6 +217,11 @@ void task3_5() {
 			cout << "вы ввели строку длинной не 30 символов! \n";
 		} while (q);
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }

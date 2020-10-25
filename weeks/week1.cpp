@@ -25,7 +25,12 @@ void task1_1() {
 		cin >> yourName;
 		cout << "Ваше имя - " << yourName << "\n";
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -158,7 +163,12 @@ void task1_3() {
 
 		cout << "\n\n\n\nРешение уравнения равно " << equationLineSolve;
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 

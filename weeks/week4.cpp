@@ -56,7 +56,12 @@ void task4_1() {
 
 		cout << "Сумма чисел в файле равна: " << Sum << endl;
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -89,7 +94,12 @@ void task4_2() {
 		else if (sign(numero) == -1)
 			cout << "Число " << numero << " - отрицательное.";
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -156,7 +166,12 @@ void task4_3() {
 			break;
 		}
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -207,7 +222,12 @@ void task4_4() {
 				q = false;
 		} while (q);
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -234,7 +254,12 @@ void task4_5() {
 			std::cout << '\n';
 		}
 
-		isContinue();
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
 
@@ -244,13 +269,33 @@ void task4_6() {
 	string command_empty;
 	bool isExit = false;
 
-	char romeSuccesful;
+	char romka[80];
+	int temka, culpa;
 
-	cout << "\n\n\n\n\n\n\n\n\n\n----------------Автоматный распознаватель----------------\n\n\n\n\n\n\n\n\n\n";
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Автоматный  хуй распознаватель----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
-		romeSuccesful = inputRome();
-		cout << "ХУЙ";
-		isContinue();
+		culpa = 0;
+		cout << "Введите число в римской системе счисления\n";
+		cin >> romka;
+		temka = strlen(romka);
+
+		for (int i = 0; i < temka; i++) {
+			if (!((romka[i] == 'I') || (romka[i] == 'V') || (romka[i] == 'X') || (romka[i] == 'L') || (romka[i] == 'C') || (romka[i] == 'D') || (romka[i] == 'D'))) {
+				culpa++;
+			}
+		}
+
+		if (culpa != 0) {
+			cout << "Вы допустили ошибку при вводе, повторите\n";
+		}
+		else {
+			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+			cin >> command_empty;
+			if (command_empty == "!exit") {
+				isExit = true;
+			}
+			system("cls");
+		}
 	} while (!isExit);
 }
