@@ -7,6 +7,7 @@
 #include <cmath>
 #define M_PI 3.14159265358979323846
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 void khanZamai();
@@ -270,32 +271,101 @@ void task4_6() {
 	bool isExit = false;
 
 	char romka[80];
-	int temka, culpa;
+	int temka, culpa, culpaTres;
+	int resulto;
 
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Автоматный  хуй распознаватель----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
 		culpa = 0;
+		culpaTres = 0;
+		resulto = 0;
+		
+		/*
+		// обнуление массива
+		fill_n(romka, 80, nullptr);
+		*/
+
 		cout << "Введите число в римской системе счисления\n";
 		cin >> romka;
 		temka = strlen(romka);
 
+		/*----------------------------------------Блок с проверками--------------------------------------------*/
+
 		for (int i = 0; i < temka; i++) {
-			if (!((romka[i] == 'I') || (romka[i] == 'V') || (romka[i] == 'X') || (romka[i] == 'L') || (romka[i] == 'C') || (romka[i] == 'D') || (romka[i] == 'D'))) {
+			if (!((romka[i] == 'I') || (romka[i] == 'V') || (romka[i] == 'X') || (romka[i] == 'L') || (romka[i] == 'C') || (romka[i] == 'D') || (romka[i] == 'M'))) {
 				culpa++;
 			}
 		}
-
-		if (culpa != 0) {
-			cout << "Вы допустили ошибку при вводе, повторите\n";
-		}
-		else {
-			cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
-			cin >> command_empty;
-			if (command_empty == "!exit") {
-				isExit = true;
+		for (int j = 3; j < temka; j++) {
+			if (romka[j] == romka[j - 1] && romka[j] == romka[j - 2] && romka[j] == romka[j - 3]) {
+				culpaTres++;
 			}
-			system("cls");
 		}
+
+		try {
+			if (culpa != 0) {
+				throw 7777;
+			}
+			if (culpaTres != 0) {
+				throw 8888;
+			}
+		}
+		catch (int culpaCatcher) {
+			if (culpaCatcher == 7777) {
+				cout << "Вы допустили ошибку при вводе, повторите\n";
+				continue;
+			}
+			if (culpaCatcher == 8888) {
+				cout << "Запись не может состоять из 4 цифр подряд\n";
+				continue;
+			}
+		}
+
+		/*----------------------------------------Основной блок--------------------------------------------*/
+
+		// Заменим римские цифры в массиве на их значения в арабской системе счисления
+		for (int k = 0; k <= temka; k++) {
+			if (romka[k] == 'I') {
+				romka[k] = 1;
+			}
+			else if (romka[k] == 'V') {
+				romka[k] = 5;
+			}
+			else if (romka[k] == 'X') {
+				romka[k] = 10;
+			}
+			else if (romka[k] == 'L') {
+				romka[k] = 50;
+			}
+			else if (romka[k] == 'C') {
+				romka[k] = 100;
+			}
+			else if (romka[k] == 'D') {
+				romka[k] = 500;
+			}
+			else if (romka[k] == 'M') {
+				romka[k] = 1000;
+			}
+		}
+
+		for (int m = 0; m < temka - 1; m++) {
+			if (romka[m] < romka[m + 1]) {
+				resulto -= romka[m];
+			}
+			else {
+				resulto += romka[m];
+			}
+		}
+		resulto += romka[temka - 1];
+
+		cout << "Введённое вами число в арабской записи равно " << resulto << endl;
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
 	} while (!isExit);
 }
