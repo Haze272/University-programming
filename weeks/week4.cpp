@@ -382,8 +382,37 @@ void task4_7() {
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Генератор случайных чисел----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
-		cout << "Введите число\n";
+		cout << "Введите число m\n";
+		m = inputInt(-2147483647, 2147483647);
+		cout << "Введите число i\n";
+		i = inputInt(-2147483647, 2147483647);
+		cout << "Введите число c\n";
+		c = inputInt(-2147483647, 2147483647);
 		
+
+
+		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
+
+void task4_8() {
+	khanZamai();
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+
+	int m, i, c;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Умножение матриц----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		cout << "Введите число\n";
+
 
 		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 		cin >> command_empty;
