@@ -1,4 +1,4 @@
-﻿#include "../helpFunc/helpFunctions.h"
+#include "../helpFunc/helpFunctions.h"
 #include "weeks.h"
 #include <iostream>
 #include <string>
@@ -8,6 +8,8 @@
 #define M_PI 3.14159265358979323846
 #include <fstream>
 #include <algorithm>
+#include <iomanip>      // std::setw
+#include <vector>
 
 using namespace std;
 void khanZamai();
@@ -377,19 +379,28 @@ void task4_7() {
 	string command_empty;
 	bool isExit = false;
 
-	int m, i, c;
+	int s, m, i, c;
 
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Генератор случайных чисел----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
-		cout << "Введите число m\n";
-		m = inputInt(-2147483647, 2147483647);
-		cout << "Введите число i\n";
-		i = inputInt(-2147483647, 2147483647);
-		cout << "Введите число c\n";
-		c = inputInt(-2147483647, 2147483647);
-		
+		cout << "Введите исходное число\n";
+		s = inputInt(-2147483647, 2147483647);
 
+		cout << "Введите первый параметр\n";
+		m = inputInt(-2147483647, 2147483647);
+
+		cout << "Введите второй параметр\n";
+		i = inputInt(-2147483647, 2147483647);
+
+		cout << "Введите третий параметр\n";
+		c = inputInt(-2147483647, 2147483647);
+
+		for (int n = 0; n < 20; n++) {
+			s = (m * s + i) % c;
+		}
+
+		cout << "Случайное число равно " << s << endl;
 
 		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 		cin >> command_empty;
@@ -406,13 +417,184 @@ void task4_8() {
 	string command_empty;
 	bool isExit = false;
 
-	int m, i, c;
+	float a[3][4] = {
+		{5, 2, 0, 10},
+		{3, 5, 2, 5},
+		{20, 0, 0, 0}
+	};
+	/*
+	float b[4][2] = {
+		{1.2, 0.5},
+		{2.8, 0.4},
+		{5, 1},
+		{2, 1.5}
+	};
+	*/
+	float b[4][2] = {
+		{1.2, 0.5},
+		{2.8, 0.4},
+		{5, 1},
+		{2, 1.5}
+	};
+	float c[3][2]{
+		{0, 0},
+		{0, 0},
+		{0, 0}
+	};
+
+	float max1 = 0, max2 = 0, sum1 = 0, sum2 = 0, sumall = 0;
 
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Умножение матриц----------------\n\n\n\n\n\n\n\n\n\n";
 
 	do {
-		cout << "Введите число\n";
+		// Умножение матрицы :-) ;)
+		for (int i = 0; i < 3; i++)
+			for (int j = 0; j < 2; j++)
+				for (int k = 0; k < 4; k++)
+					c[i][j] += a[i][k] * b[k][j];
 
+		// Вывод матриц в консоль )))
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 4; j++) {
+				cout << setw(4) << a[i][j];
+			}
+			cout << endl;
+		}
+		cout << endl;
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 2; j++) {
+				cout << setw(4) << b[i][j];
+			}
+			cout << endl;
+		}
+		cout << endl;
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 2; j++) {
+				cout << setw(5) << c[i][j];
+			}
+			cout << endl;
+		}
+		cout << endl;
+
+		// Само задание жэс
+		for (int i = 0; i < 3; i++) {
+			if (c[i][1] > max1) {
+				max1 = c[i][1];
+			}
+		}
+		cout << "El primero maximo es " << max1 << endl;
+		for (int i = 0; i < 3; i++) {
+			if (c[i][2] > max2) {
+				max2 = c[i][2];
+			}
+		}
+		cout << "El segundo maximo es " << max2 << endl;
+
+		for (int i = 0; i < 2; i++) {
+			sum1 += c[1][i];
+		}
+		cout << "La suma primero es " << sum1 << endl;
+		for (int i = 0; i < 2; i++) {
+			sum2 += c[2][i];
+		}
+		cout << "La suma segundo es " << sum2 << endl;
+
+		cout << "\nContinuamos? Escriba cualquier cosa para seguir, !exitsi quieres salir de la programa\n";
+		cin >> command_empty;
+		if (command_empty == "!exit") {
+			isExit = true;
+		}
+		system("cls");
+	} while (!isExit);
+}
+
+void task4_9() {
+	khanZamai();
+	system("cls");
+	string command_empty;
+	bool isExit = false;
+
+	int inputn = 0, outputn = 0, finaldec = 0;
+	string inputnum;
+	vector<int> dec;
+	vector<int> out;
+	vector<char> charset;
+
+	cout << "\n\n\n\n\n\n\n\n\n\n----------------Системы счисления----------------\n\n\n\n\n\n\n\n\n\n";
+
+	do {
+		cout << "Введите исходное число ";
+		
+		begin11:  // Антихайповый костыль, главное - время
+		cin >> inputnum;
+
+		for (int i = 0; i < inputnum.length(); i++) {
+			if (inputnum[i] > 47 && inputnum[i] < 58)
+				dec.push_back(inputnum[i] - 48);
+			else if (inputnum[i] > 64 && inputnum[i] < 91)
+				dec.push_back(inputnum[i] - 55);
+			else {
+				cout << "Введите число цифрами \"0-9\" и заглавными буквами \"A-Z\"\n";
+				goto begin11;
+			}
+		}
+		while (inputn < 2 || inputn >36 || outputn < 2 || outputn >36) {
+			cout << "Исходная СС?\n";
+			cin >> inputn;
+			cout << "Нужная CC?\n";
+			cin >> outputn;
+		}
+
+		for (int i = 0; i < inputnum.length(); i++)
+			if (inputnum[i] > 47 && inputnum[i] < 58 && inputnum[i] - 48 >= inputn) {
+				cout << "Введите допустимое для " << inputn << "-ичной СС число - ";
+				dec.clear();
+				goto begin11;
+			}
+
+		int n = 0;
+		for (int i = 0; i < dec.size() - n; i++) {
+			swap(dec[i], dec[dec.size() - n - 1]);
+			n++;
+		}
+		cout << '\n';
+		for (int i = 0; i < dec.size(); i++)
+			finaldec += dec[i] * pow(inputn, i);
+
+		for (int i = 0; finaldec > 0; i++) {
+			out.push_back(finaldec % outputn);
+			finaldec /= outputn;
+		}
+		n = 0;
+		for (int i = 0; i < out.size() - n; i++) {
+			swap(out[i], out[out.size() - n - 1]);
+			n++;
+		}
+
+
+
+		for (char c = 'A'; c <= 'Z'; c++) {
+			charset.push_back(c);
+		}
+
+		vector<char> output(out.size());
+
+
+		for (int i = 0; i < out.size(); i++) {
+			if (out[i] >= 0 && out[i] < 10)
+				output[i] = (out[i] + 48);
+			else {
+				for (int j = 10; j < 36; j++) {
+					if (out[i] + 55 == j + 55)
+						output[i] = charset[j - 10];
+				}
+			}
+		}
+
+		cout << "Число в " << outputn << "-ичной СС: ";
+		for (int i = 0; i < output.size(); i++)
+			cout << output[i];
+		cout << '\n';
 
 		cout << "\nПродолжим? Напишите всё что угодно для продолжения, !exit если хотите выйти из программы\n";
 		cin >> command_empty;
