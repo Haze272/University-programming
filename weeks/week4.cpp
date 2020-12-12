@@ -194,7 +194,7 @@ void task4_4() {
 				for (int i = 0; i < 8; i++) {
 					cout << "* ";
 				}
-				if (y == 1 or y == 3 or y == 5) {
+				if (y == 1 OR y == 3 OR y == 5) {
 					for (int i = 7; i < 45; i++) {
 						cout << " ";
 					}
@@ -208,8 +208,8 @@ void task4_4() {
 					y++;
 				}
 			}
-			else if (y >= 6 and y < 13) {
-				if (y == 7 or y == 9 or y == 11 or y == 13) {
+			else if (y >= 6 && y < 13) {
+				if ((y == 7) OR (y == 9) OR (y == 11) OR (y == 13)) {
 					for (int i = 0; i < 54; i++) {
 						cout << " ";
 					}
@@ -442,7 +442,7 @@ void task4_8() {
 		{0, 0}
 	};
 
-	float max1 = 0, max2 = 0, sum1 = 0, sum2 = 0, sumall = 0;
+	float max1 = 0, max2 = 0, min1 = 0, min2 = 0, sum1 = 0, sum2 = 0, sumall = 0;
 
 	cout << "\n\n\n\n\n\n\n\n\n\n----------------Умножение матриц----------------\n\n\n\n\n\n\n\n\n\n";
 
@@ -482,22 +482,24 @@ void task4_8() {
 				max1 = c[i][1];
 			}
 		}
-		cout << "El primero maximo es " << max1 << endl;
+		cout << "Первый продавец получил максимально " << max1 << endl;
+
 		for (int i = 0; i < 3; i++) {
 			if (c[i][2] > max2) {
 				max2 = c[i][2];
 			}
 		}
-		cout << "El segundo maximo es " << max2 << endl;
+		cout << "Второй продавец получил максимально " << max2 << endl;
 
 		for (int i = 0; i < 2; i++) {
 			sum1 += c[1][i];
 		}
-		cout << "La suma primero es " << sum1 << endl;
+		cout << "Сумма первого " << sum1 << endl;
+
 		for (int i = 0; i < 2; i++) {
 			sum2 += c[2][i];
 		}
-		cout << "La suma segundo es " << sum2 << endl;
+		cout << "Сумма второго " << sum2 << endl;
 
 		cout << "\nContinuamos? Escriba cualquier cosa para seguir, !exitsi quieres salir de la programa\n";
 		cin >> command_empty;
