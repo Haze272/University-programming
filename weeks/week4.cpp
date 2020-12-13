@@ -194,7 +194,7 @@ void task4_4() {
 				for (int i = 0; i < 8; i++) {
 					cout << "* ";
 				}
-				if (y == 1 OR y == 3 OR y == 5) {
+				if (y == 1 || y == 3 || y == 5) {
 					for (int i = 7; i < 45; i++) {
 						cout << " ";
 					}
@@ -209,7 +209,7 @@ void task4_4() {
 				}
 			}
 			else if (y >= 6 && y < 13) {
-				if ((y == 7) OR (y == 9) OR (y == 11) OR (y == 13)) {
+				if ((y == 7) || (y == 9) || (y == 11) || (y == 13)) {
 					for (int i = 0; i < 54; i++) {
 						cout << " ";
 					}
